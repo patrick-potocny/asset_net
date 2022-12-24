@@ -1,25 +1,24 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "AssetNet",
+  "name": "AssetNet: Keep track of your digital assets.",
+  "description": "Select any cryptocurrencies or stocks and display their price and performance.",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "/static/favicon.ico",
+      "sizes": "48x48",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "/static/android-chrome-256x256.png",
       "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "256x256"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#000000",
+  "categories": ["business", "finance"],
+  "id": "/",
+  "scope": "/"
 }
