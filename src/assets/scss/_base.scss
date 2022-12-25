@@ -1,12 +1,33 @@
-// Variables
-$clr-main: rgba(118, 118, 128, 0.24);
-$clr-bg: black;
-$clr-text: white;
-$clr-green: #32d74b;
+// Defining color pallete like this enables me to use scss variables throughout
+// ohter files while preserving dark mode functionality
+//Dark mode colors
+body {
+  --clr-main: rgba(118, 118, 128, 0.24);
+  --clr-bg: black;
+  --clr-text: white;
+  --clr-toggle: #32d74b;
+  --clr-sp-pill: #636366
+}
+// Light Mode colors
+body.lightMode {
+  --clr-main: #EEEEEF;
+  --clr-bg: white;
+  --clr-text: black;
+  --clr-toggle: #787880;
+  --clr-sp-pill: #636366
+}
 
+// Variables
+$clr-main: var(--clr-main);
+$clr-bg: var(--clr-bg);
+$clr-text: var(--clr-text);
+$clr-toggle: var(--clr-toggle);
+$clr-sp-pill: var(--clr-sp-pill);
 
 // Body
 body {
   background-color: $clr-bg;
   color: $clr-text;
+  transition: background-color 0.3s ease-in-out;
 }
+
