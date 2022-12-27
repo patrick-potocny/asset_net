@@ -14,7 +14,7 @@ body.lightMode {
   --clr-bg: white;
   --clr-text: black;
   --clr-toggle: #787880;
-  --clr-sp-pill: #636366
+  --clr-sp-pill: white
 }
 
 // Variables
@@ -28,6 +28,25 @@ $clr-sp-pill: var(--clr-sp-pill);
 body {
   background-color: $clr-bg;
   color: $clr-text;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
   transition: background-color 0.3s ease-in-out;
 }
 
+// Util classes 
+.container {
+  margin-inline: 1rem;
+}
+
+// Media queries
+@media (max-width: 600px) {
+  .header{
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .controls-container {
+    font-size: 0.7rem;
+  }
+}
