@@ -40,17 +40,18 @@ function Header() {
   return (
     <header className="header">
       <img src={logo} className="header__logo" alt="AssetNet" />
-      <div className="header__toggle" tabIndex={0}>
+      <div className="header__toggle">
         <input
           type="checkbox"
           className="header__checkbox"
           id="checkbox"
+          data-testid="dark-mode-toggle"
           checked={darkMode}
           onChange={handleChange}
         />
         <label htmlFor="checkbox" className="header__label">
           <div className="header__ball">
-            <img src={icon} alt="moon" />
+            <img src={icon} alt="mode-icon" />
           </div>
         </label>
       </div>

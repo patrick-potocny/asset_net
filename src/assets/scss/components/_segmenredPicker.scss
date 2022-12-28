@@ -19,10 +19,7 @@
   input {
     opacity: 0;
     margin: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     position: absolute;
     width: 100%;
     cursor: pointer;
@@ -63,7 +60,7 @@
   }
 
   &.inactive:hover, &.active label {
-    font-weight: 800;
+    font-weight: 600;
     transition: font-weight 0.1s ease;
   }
 }

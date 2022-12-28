@@ -28,8 +28,7 @@ $clr-sp-pill: var(--clr-sp-pill);
 body {
   background-color: $clr-bg;
   color: $clr-text;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 400;
+  font-family: 'Inter', sans-serif;
   transition: background-color 0.3s ease-in-out;
 }
 
