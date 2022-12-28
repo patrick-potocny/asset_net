@@ -9,12 +9,9 @@ function Header() {
   const [icon, setIcon] = useState(moon);
   const [logo, setLogo] = useState(logoLight);
 
-  // Gets users preffered mode if its saved in localStorage, if not saves current mode
+  // Sets mode to light mode if user preffers it
   useEffect(() => {
-    let usersDarkMode = localStorage.getItem("darkMode");
-    if (usersDarkMode === null) {
-      localStorage.setItem("darkMode", true);
-    } else if (usersDarkMode === "false") {
+    if (localStorage.getItem('darkMode') === "false") {
       setDarkMode(false);
     }
   }, []);
