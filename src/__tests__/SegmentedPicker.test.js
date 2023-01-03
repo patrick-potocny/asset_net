@@ -20,6 +20,7 @@ describe('SegmentedPicker component', () => {
         options={options}
         callback={mockCallback}
         controlRef={controlRef}
+        defaultOption='option1'
       />
     );
     expect(container).toMatchSnapshot();
@@ -39,6 +40,7 @@ describe('SegmentedPicker component', () => {
         options={options}
         callback={mockCallback}
         controlRef={controlRef}
+        defaultOption='option1'
       />
     );
   

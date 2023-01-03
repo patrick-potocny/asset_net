@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import PropTypes from 'prop-types'
 
 // reused component from https://letsbuildui.dev/articles/building-a-segmented-control-component
-function SegmentedPicker({ name, options, callback, controlRef,}) {
-  const [activeIndex, setActiveIndex] = useState(0);
+function SegmentedPicker({ name, options, callback, controlRef, defaultOption}) {
+  const [activeIndex, setActiveIndex] = useState(options.findIndex(opt => opt.value === defaultOption));
   const componentReady = useRef();
 
   useEffect(() => {
@@ -49,11 +49,12 @@ function SegmentedPicker({ name, options, callback, controlRef,}) {
   );
 }
 
-
-export default SegmentedPicker;
 SegmentedPicker.propTypes = {
   name: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
   callback: PropTypes.func.isRequired,
   controlRef: PropTypes.object.isRequired,
+  defaultOption: PropTypes.string
 };
+
+export default SegmentedPicker;

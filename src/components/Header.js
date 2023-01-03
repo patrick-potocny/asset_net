@@ -5,13 +5,13 @@ import moon from "../assets/images/moon.svg";
 import sun from "../assets/images/sun.svg";
 
 function Header() {
-  const [darkMode, setDarkMode] = useState(true);
-  const [icon, setIcon] = useState(moon);
-  const [logo, setLogo] = useState(logoLight);
+  const [darkMode, setDarkMode] = useState(false);
+  const [icon, setIcon] = useState(sun);
+  const [logo, setLogo] = useState(logoDark);
 
   // Sets mode to light mode if user preffers it
   useEffect(() => {
-    if (localStorage.getItem('darkMode') === "false") {
+    if (localStorage.getItem('darkMode') === "true") {
       setDarkMode(false);
     }
   }, []);

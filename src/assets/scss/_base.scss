@@ -6,7 +6,10 @@ body {
   --clr-bg: black;
   --clr-text: white;
   --clr-toggle: #32d74b;
-  --clr-sp-pill: #636366
+  --clr-sp-pill: #636366;
+  --clr-card-div: #B6B6B8;
+  --clr-card-red: #FF0000;
+  --clr-card-green: #00D400;
 }
 // Light Mode colors
 body.lightMode {
@@ -23,6 +26,9 @@ $clr-bg: var(--clr-bg);
 $clr-text: var(--clr-text);
 $clr-toggle: var(--clr-toggle);
 $clr-sp-pill: var(--clr-sp-pill);
+$clr-card-div: var(--clr-card-div);
+$clr-card-red: var(--clr-card-red);
+$clr-card-green: var(--clr-card-green);
 
 // Body
 body {
@@ -34,13 +40,21 @@ body {
 
 // Util classes 
 .container {
-  margin-inline: 1rem;
+  margin-inline: 3em;
+}
+
+.flex {
+  display: flex;
 }
 
 // Media queries
 @media (max-width: 600px) {
   .header{
     font-size: 0.7rem;
+  }
+
+  .container {
+    margin-inline: 1em;
   }
 }
 

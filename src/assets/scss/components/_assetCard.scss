@@ -1,0 +1,105 @@
+.asset {
+  background-color: $clr-main;
+  width: 18.75em;
+  height: 18.75em;
+  padding: 1.5em 1em;
+  border-radius: 1em;
+  position: relative;
+
+  &__remove {
+    width: 1.5em;
+    position: absolute;
+    right: 0.7em;
+    top: 0.7em;
+
+    &:hover {
+    transition: 0.1s ease-in;
+    filter: brightness(1%);
+    transform: scale(1.2);
+    cursor: pointer;
+    }
+  }
+
+  &__info {
+    .symbol {
+      display: inline-block;
+      font-size: 1.6em;
+      font-weight: 800;
+    }
+
+    .name {
+      margin-left: 0.6em;
+      opacity: 0.4;
+    }
+
+    .info-divider {
+      height: 2px;
+      border: none;
+      background-color: $clr-card-div;
+    }
+
+    .price, .change {
+      display: inline-block;
+      margin-block: 0.3em;
+      width: 50%;
+      font-weight: 600;
+    }
+    
+    .price {
+      border-right: 1px solid $clr-card-div;
+    }
+
+    .change {
+      display: flex;
+      justify-content: flex-end;
+      
+      &__triangle {
+        width: 0.75em;
+        margin-right: 2px;
+      }
+
+      .red {
+        color: $clr-card-red;
+      }
+
+      .green {
+        color: $clr-card-green;
+      }
+    }
+  }
+
+  &__divider {
+    margin-inline: -1em;
+  }
+
+  &__time-frame {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 0.3em;
+
+    .time-frame-btn {
+      width: 1.8em;
+      height: 1.8em;
+      font-weight: 600;
+      padding: 0.1em;
+      background-color: transparent;
+      color: inherit;
+      border: none;
+      border-radius: 0.4em;
+
+      &:hover {
+        transition: 0.1s ease-in;
+        background-color: $clr-sp-pill;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+      }
+
+      &.selected {
+        background-color: $clr-sp-pill;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+        cursor: default;
+      }
+    }
+  }
+
+}
