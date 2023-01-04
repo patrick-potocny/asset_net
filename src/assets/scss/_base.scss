@@ -5,11 +5,11 @@ body {
   --clr-main: rgba(118, 118, 128, 0.24);
   --clr-bg: black;
   --clr-text: white;
-  --clr-toggle: #32d74b;
+  --clr-toggle: rgb(50, 215, 75);
   --clr-sp-pill: #636366;
-  --clr-card-div: #B6B6B8;
+  --clr-card-div: rgba(182, 182, 184, 0.5);;
   --clr-card-red: #FF0000;
-  --clr-card-green: #00D400;
+  --clr-card-green: rgb(0, 212, 0);
 }
 // Light Mode colors
 body.lightMode {
@@ -17,7 +17,10 @@ body.lightMode {
   --clr-bg: white;
   --clr-text: black;
   --clr-toggle: #787880;
-  --clr-sp-pill: white
+  --clr-sp-pill: white;
+  --clr-card-div: #B6B6B8;
+  --clr-card-red: #FF0000;
+  --clr-card-green: rgb(0, 212, 0);
 }
 
 // Variables

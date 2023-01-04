@@ -9,6 +9,7 @@ function Assets({ assetType, assetData }) {
     (asset) => asset.assetType === assetType
   );
   if (assetType === "all_assets") displayedAssets = assetData;
+  console.log(assetData);
 
   return (
     <div className="container assets">

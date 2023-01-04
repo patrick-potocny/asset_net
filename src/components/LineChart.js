@@ -8,6 +8,7 @@ import {
   PointElement,
   LineElement,
   Tooltip,
+  Filler,
 } from "chart.js";
 
 ChartJS.register(
@@ -15,19 +16,50 @@ ChartJS.register(
   LinearScale,
   PointElement,
   LineElement,
-  Tooltip
+  Tooltip,
+  Filler
 );
 
-function LineChart({ data }) {
-  console.log(data);
-
+function LineChart({ data, changeColor }) {
+  const changeClr = changeColor === 'green' ? "rgba(0,212,0" : "rgba(255,0,0"
   const options = {
     responsive: true,
     elements: {
       point: {
-        radius: 0,
+        radius: 4,
       },
     },
+    scales: {
+      y: {
+        position: 'right',
+        ticks: {
+          font: {
+            size: 13,
+            weight: 'bold'
+          },
+          maxTicksLimit: 5,
+          callback: function(val) {
+            return val + '$';
+          },
+        },
+        grid: {color: 'rgba(142, 142, 147, 0.3)'}
+      },
+      x: {
+        ticks: {
+          font: {
+            size: 13,
+            weight: 'bold',
+          },
+          maxRotation: 0
+         },
+         grid: {color: 'rgba(142, 142, 147, 0.3)'}
+      }
+    },
+    plugins: {
+      tooltip: {
+        displayColors: false,
+      }
+    }
   };
 
   const chartData = {
@@ -35,21 +67,31 @@ function LineChart({ data }) {
     datasets: [
       {
         data: data.data,
-        borderColor: "#00D400",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        borderColor: `${changeClr},1)`,
+        fill: true,
+        backgroundColor: (context) => {
+          const ctx = context.chart.ctx;
+          const gradient = ctx.createLinearGradient(0, 0, 0, 100);
+          gradient.addColorStop(0, `${changeClr},1)`);
+          gradient.addColorStop(1, `${changeClr},0)`);
+          return gradient;
+        },
+        pointBackgroundColor: 'transparent',
+        pointBorderColor: 'transparent',
       },
     ],
   };
 
   return (
     <div className="chart">
-      <Line options={options} data={chartData} />
+      <Line id="myChart" options={options} data={chartData} />
     </div>
   );
 }
 
 LineChart.propTypes = {
   data: PropTypes.object.isRequired,
+  changeColor: PropTypes.string.isRequired,
 };
 
 export default LineChart;

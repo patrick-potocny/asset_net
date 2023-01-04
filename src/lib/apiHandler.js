@@ -136,10 +136,11 @@ function getAssetData(asset) {
     assetData.price = data.data.coin.price
     assetData.change = data.data.coin.change
     assetData.sparkline = {
-      labels: ["13:00", "11:00", "9:00", "7:00", "5:00", "3:00", "13:00", "11:00", "9:00", "7:00", "5:00", "3:00",
-               "13:00", "11:00", "9:00", "7:00", "5:00", "3:00", "13:00", "11:00", "9:00", "7:00", "5:00", "3:00", "1:00"],
+      labels: ["", "11:00", "9:00", "7:00", "5:00", "3:00", "13:00", "11:00", "9:00", "7:00", "5:00", "3:00",
+               "13:00", "11:00", "9:00", "11:00", "5:00", "3:00", "13:00", "11:00", "9:00", "7:00", "5:00", "3:00", "1:00"],
       data: data.data.coin.sparkline
     }
+    assetData.assetType = asset.assetType
   } else if(asset.assetType === 'stocks') {
     console.log('Getting stocks');      
   }

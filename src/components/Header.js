@@ -12,7 +12,7 @@ function Header() {
   // Sets mode to light mode if user preffers it
   useEffect(() => {
     if (localStorage.getItem('darkMode') === "true") {
-      setDarkMode(false);
+      setDarkMode(true);
     }
   }, []);
 

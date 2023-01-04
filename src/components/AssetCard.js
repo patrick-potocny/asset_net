@@ -44,7 +44,7 @@ function AssetCard({ asset: assetData }) {
         <button className="time-frame-btn">3Y</button>
       </div>
       <hr className="asset__divider" />
-      <LineChart data={assetData.sparkline} />
+      <LineChart data={assetData.sparkline} changeColor={changeColor}/>
     </div>
   );
 }

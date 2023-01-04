@@ -69,6 +69,9 @@
   }
 
   &__divider {
+    height: 1px;
+    border: none;
+    background-color: $clr-card-div;
     margin-inline: -1em;
   }
 
@@ -83,20 +86,19 @@
       font-weight: 600;
       padding: 0.1em;
       background-color: transparent;
-      color: inherit;
+      color: $clr-card-div;
       border: none;
       border-radius: 0.4em;
 
-      &:hover {
+      &:hover, &.selected {
         transition: 0.1s ease-in;
+        color: $clr-text;
         background-color: $clr-sp-pill;
         box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
         cursor: pointer;
       }
 
       &.selected {
-        background-color: $clr-sp-pill;
-        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
         cursor: default;
       }
     }
