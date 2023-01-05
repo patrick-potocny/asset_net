@@ -1,3 +1,5 @@
+import { processCryptoData } from "./utlis";
+
 function getAssetsData() {
   const assetList = JSON.parse(localStorage.getItem('assetList'))
   let assetData = []
@@ -83,7 +85,7 @@ function getAssetData(asset) {
           "24hVolume": "10483825413",
           "marketCap": "321086694328",
           "fullyDilutedMarketCap": "350829300790",
-          "price": "16706.16",
+          "price": "16706.16579823919",
           "btcPrice": "1",
           "priceAt": 1672669020,
           "change": "0.92",
@@ -131,16 +133,7 @@ function getAssetData(asset) {
         }
       }
     }
-    assetData.symbol = data.data.coin.symbol
-    assetData.name = data.data.coin.name
-    assetData.price = data.data.coin.price
-    assetData.change = data.data.coin.change
-    assetData.sparkline = {
-      labels: ["", "11:00", "9:00", "7:00", "5:00", "3:00", "13:00", "11:00", "9:00", "7:00", "5:00", "3:00",
-               "13:00", "11:00", "9:00", "11:00", "5:00", "3:00", "13:00", "11:00", "9:00", "7:00", "5:00", "3:00", "1:00"],
-      data: data.data.coin.sparkline
-    }
-    assetData.assetType = asset.assetType
+    assetData = processCryptoData(data, asset);
   } else if(asset.assetType === 'stocks') {
     console.log('Getting stocks');      
   }
@@ -148,20 +141,5 @@ function getAssetData(asset) {
   return assetData
 }
 
-// Function that creates list of 5 full hour timestamps in 24h format that decrement by 6 hours from current time
-// function getTimestamps() {
-//   const currentTime = new Date();
-//   const timestamps = [];
-
-//   for (let i = 0; i < 5; i++) {
-//     const timestamp = new Date(currentTime);
-//     timestamp.setHours(timestamp.getHours() - (2 * i));
-//     timestamp.setMinutes(0);
-//     timestamp.setSeconds(0);
-//     timestamps.push(`${timestamp.getHours()}:00`);
-//   }
-
-//   return timestamps;
-// }
 
 export {getAssetsData};

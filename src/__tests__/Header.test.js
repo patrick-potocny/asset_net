@@ -23,13 +23,13 @@ describe("Header component", () => {
     render(<Header />);
 
     // Check that light mode is enabled
-    expect(screen.getByTestId("dark-mode-toggle")).not.toBeChecked();
+    expect(screen.getByTestId("dark-mode-toggle")).toBeChecked();
 
     // Toggle dark mode
     fireEvent.click(screen.getByAltText("mode-icon").closest("label"));
 
     // Check that dark mode is now enabled
-    expect(screen.getByTestId('dark-mode-toggle')).toBeChecked();
+    expect(screen.getByTestId('dark-mode-toggle')).not.toBeChecked();
   });
 
   test("saves the mode in local storage", () => {

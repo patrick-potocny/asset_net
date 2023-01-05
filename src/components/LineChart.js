@@ -50,7 +50,8 @@ function LineChart({ data, changeColor }) {
             size: 13,
             weight: 'bold',
           },
-          maxRotation: 0
+          maxRotation: 0,
+          maxTicksLimit: 4
          },
          grid: {color: 'rgba(142, 142, 147, 0.3)'}
       }
