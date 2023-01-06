@@ -41,7 +41,7 @@ function App() {
         ]}
         defaultOption={assetType}
       />
-      <Assets assetType={assetType} assetData={assetData} />
+      <Assets assetType={assetType} assetData={assetData} setAssetData={setAssetData}/>
     </>
   );
 }

@@ -142,4 +142,4 @@ function getAssetData(asset) {
 }
 
 
-export {getAssetsData};
+export {getAssetsData, getAssetData};

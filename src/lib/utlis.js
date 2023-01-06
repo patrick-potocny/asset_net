@@ -4,7 +4,9 @@ function processCryptoData(data, asset) {
     name: data.data.coin.name,
     price: parseFloat(data.data.coin.price).toFixed(2),
     change: data.data.coin.change,
+    id: asset.id,
     assetType: asset.assetType,
+    timeFrame: asset.timeFrame,
     sparkline: {
       labels: generateCryptoLabels(asset.timeFrame),
       data: Object.values(data.data.coin.sparkline)
@@ -86,7 +88,6 @@ function generateCryptoLabels(timeFrame) {
   }
 
   labels.reverse().unshift("")
-  console.log(labels)
   return labels
 }
 
