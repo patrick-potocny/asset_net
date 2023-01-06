@@ -1,0 +1,41 @@
+.delAsset {
+  width: 18.75em;
+  height: 6.25em;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: $clr-main;
+
+  &__prompt {
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+  }
+
+  &__btns {
+    height: 40%;
+
+    .btn {
+      width: 50%;
+      height: 100%;
+      background-color: transparent;
+      border: none;
+      border-top: 1px solid $clr-modal-div;
+      &:hover {
+        transition: 0.2s ease-in;
+        background-color: $clr-modal-hover;
+        cursor: pointer;
+      }
+    }
+
+    .cancel {
+      color: $clr-text-blue;
+      border-right: 1px solid $clr-modal-div;
+    }
+
+    .delete {
+      color: $clr-card-red;
+    }
+  }
+}

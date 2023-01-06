@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import AssetCard from "./AssetCard";
 import { updateAsset } from "../lib/localStorageHandler";
 import { getAssetData } from "../lib/apiHandler";
 import { v4 as uuid } from "uuid";
+import { AssetDataCtx } from "../AssetDataCtx";
 
-function Assets({ assetType, assetData, setAssetData }) {
+function Assets({ assetType }) {
+  const {assetData, setAssetData} = useContext(AssetDataCtx)
+
   // find better way to filter
   let displayedAssets = assetData.filter(
     (asset) => asset.assetType === assetType
@@ -38,9 +41,7 @@ function Assets({ assetType, assetData, setAssetData }) {
 }
 
 Assets.propTypes = {
-  assetType: PropTypes.string.isRequired,
-  assetData: PropTypes.array.isRequired,
-  setAssetData: PropTypes.func.isRequired
+  assetType: PropTypes.string.isRequired
 };
 
 export default Assets;

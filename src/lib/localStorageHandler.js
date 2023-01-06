@@ -37,4 +37,13 @@ function updateAsset(id, newTf) {
   return updatedAsset;
 }
 
-export { initLocalStorage, updateAsset };
+function deleteAsset(id) {
+  const assetLIst = JSON.parse(localStorage.getItem("assetList"));
+  const updatedData = assetLIst.filter(item => item.id !== id);
+  console.log(id);
+  console.log(assetLIst);
+  console.log(updatedData);
+  localStorage.setItem("assetList", JSON.stringify(updatedData));
+}
+
+export { initLocalStorage, updateAsset, deleteAsset };

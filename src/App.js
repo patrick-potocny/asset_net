@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
 import SegmentedPicker from "./components/SegmentedPicker";
 import Assets from "./components/Assets";
+import { AssetDataCtx } from "./AssetDataCtx";
 import { getAssetsData } from './/lib/apiHandler'
 
 function App() {
@@ -41,7 +42,9 @@ function App() {
         ]}
         defaultOption={assetType}
       />
-      <Assets assetType={assetType} assetData={assetData} setAssetData={setAssetData}/>
+      <AssetDataCtx.Provider value={{assetData, setAssetData}}>
+        <Assets assetType={assetType} />
+      </AssetDataCtx.Provider>
     </>
   );
 }

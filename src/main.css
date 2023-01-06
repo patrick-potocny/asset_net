@@ -68,22 +68,28 @@ body {
   --clr-main: rgba(118, 118, 128, 0.24);
   --clr-bg: black;
   --clr-text: white;
-  --clr-toggle: #32d74b;
+  --clr-text-blue: #007AFF;
+  --clr-toggle: rgb(50, 215, 75);
   --clr-sp-pill: #636366;
   --clr-card-div: rgba(182, 182, 184, 0.5);
   --clr-card-red: #FF0000;
   --clr-card-green: rgb(0, 212, 0);
+  --clr-modal-div: rgba(255, 255, 255, 0.2);
+  --clr-modal-hover: rgb(60, 60, 60);
 }
 
 body.lightMode {
   --clr-main: #EEEEEF;
   --clr-bg: white;
   --clr-text: black;
+  --clr-text-blue: #007AFF;
   --clr-toggle: #787880;
   --clr-sp-pill: white;
   --clr-card-div: #B6B6B8;
   --clr-card-red: #FF0000;
   --clr-card-green: rgb(0, 212, 0);
+  --clr-modal-div: rgba(0, 0, 0, 0.2);
+  --clr-modal-hover: rgb(219, 219, 219);
 }
 
 body {
@@ -221,6 +227,14 @@ body {
   transition: font-weight 0.1s ease;
 }
 
+.assets {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+  justify-content: left;
+  grid-gap: 1em;
+}
+
 .asset {
   background-color: var(--clr-main);
   width: 18.75em;
@@ -308,4 +322,69 @@ body {
 }
 .asset__time-frame .time-frame-btn.selected {
   cursor: default;
+}
+
+#modal .overlay {
+  transition: 0.1s ease-in;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+#modal .content {
+  transition: 0.1s ease-in;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+#modal .closed {
+  opacity: 0;
+  visibility: hidden;
+}
+#modal .open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.delAsset {
+  width: 18.75em;
+  height: 6.25em;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: var(--clr-main);
+}
+.delAsset__prompt {
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+.delAsset__btns {
+  height: 40%;
+}
+.delAsset__btns .btn {
+  width: 50%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  border-top: 1px solid var(--clr-modal-div);
+}
+.delAsset__btns .btn:hover {
+  transition: 0.2s ease-in;
+  background-color: var(--clr-modal-hover);
+  cursor: pointer;
+}
+.delAsset__btns .cancel {
+  color: var(--clr-text-blue);
+  border-right: 1px solid var(--clr-modal-div);
+}
+.delAsset__btns .delete {
+  color: var(--clr-card-red);
 }/*# sourceMappingURL=main.css.map */

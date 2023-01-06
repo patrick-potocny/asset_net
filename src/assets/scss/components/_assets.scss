@@ -1,0 +1,7 @@
+.assets {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+  justify-content: left;
+  grid-gap: 1em;
+}

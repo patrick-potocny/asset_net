@@ -1,26 +1,33 @@
 // Defining color pallete like this enables me to use scss variables throughout
 // ohter files while preserving dark mode functionality
+
 //Dark mode colors
 body {
   --clr-main: rgba(118, 118, 128, 0.24);
   --clr-bg: black;
   --clr-text: white;
+  --clr-text-blue: #007AFF;
   --clr-toggle: rgb(50, 215, 75);
   --clr-sp-pill: #636366;
   --clr-card-div: rgba(182, 182, 184, 0.5);;
   --clr-card-red: #FF0000;
   --clr-card-green: rgb(0, 212, 0);
+  --clr-modal-div: rgba(255, 255, 255, 0.2);
+  --clr-modal-hover: rgb(60, 60, 60);
 }
 // Light Mode colors
 body.lightMode {
   --clr-main: #EEEEEF;
   --clr-bg: white;
   --clr-text: black;
+  --clr-text-blue: #007AFF;
   --clr-toggle: #787880;
   --clr-sp-pill: white;
   --clr-card-div: #B6B6B8;
   --clr-card-red: #FF0000;
   --clr-card-green: rgb(0, 212, 0);
+  --clr-modal-div: rgba(0, 0, 0, 0.2);
+  --clr-modal-hover: rgb(219, 219, 219);
 }
 
 // Variables
@@ -32,6 +39,9 @@ $clr-sp-pill: var(--clr-sp-pill);
 $clr-card-div: var(--clr-card-div);
 $clr-card-red: var(--clr-card-red);
 $clr-card-green: var(--clr-card-green);
+$clr-text-blue: var(--clr-text-blue);
+$clr-modal-div: var(--clr-modal-div);
+$clr-modal-hover: var(--clr-modal-hover);
 
 // Body
 body {
