@@ -11,7 +11,7 @@ function AssetCard({ asset, updateTf }) {
   const [triangle, setTriangle] = useState(greenTriangle);
   const [changeColor, setChangeColor] = useState("green");
   const [isOpen, setIsOpen] = useState(false);
-  
+
   useEffect(() => {
     // Check if change is negative and if so change color and arrow
     if (asset.change.includes("-")) {

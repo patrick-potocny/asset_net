@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import logoLight from "../assets/images/logoLight.svg";
 import logoDark from "../assets/images/logoDark.svg";
 import moon from "../assets/images/moon.svg";
 import sun from "../assets/images/sun.svg";
+import { DarkModeCtx } from "../DarkModeCtx";
+
 
 function Header() {
-  const [darkMode, setDarkMode] = useState(false);
+  const {darkMode, setDarkMode} = useContext(DarkModeCtx)
   const [icon, setIcon] = useState(sun);
   const [logo, setLogo] = useState(logoDark);
 

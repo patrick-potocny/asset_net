@@ -1,7 +1,24 @@
 .assets {
   margin-top: 1em;
   display: grid;
+  justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
-  justify-content: left;
   grid-gap: 1em;
+
+  .add-asset-btn {
+    width: 18.75em;
+    height: 18.75em;
+    border: 3px solid $clr-add-btn-border;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    &:hover {
+      transition: 0.2s ease-in;
+      background-color: $clr-main;
+      cursor: pointer;
+    }
+  }
 }
+

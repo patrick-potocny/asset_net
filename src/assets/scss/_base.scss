@@ -14,6 +14,8 @@ body {
   --clr-card-green: rgb(0, 212, 0);
   --clr-modal-div: rgba(255, 255, 255, 0.2);
   --clr-modal-hover: rgb(60, 60, 60);
+  --clr-add-bg: #1C1C1E;
+  --clr-search-bg: #323236;
 }
 // Light Mode colors
 body.lightMode {
@@ -28,20 +30,25 @@ body.lightMode {
   --clr-card-green: rgb(0, 212, 0);
   --clr-modal-div: rgba(0, 0, 0, 0.2);
   --clr-modal-hover: rgb(219, 219, 219);
+  --clr-add-bg: white;
+  --clr-search-bg: rgba(118, 118, 128, 0.12);
 }
 
 // Variables
 $clr-main: var(--clr-main);
 $clr-bg: var(--clr-bg);
 $clr-text: var(--clr-text);
+$clr-text-blue: var(--clr-text-blue);
 $clr-toggle: var(--clr-toggle);
 $clr-sp-pill: var(--clr-sp-pill);
 $clr-card-div: var(--clr-card-div);
 $clr-card-red: var(--clr-card-red);
 $clr-card-green: var(--clr-card-green);
-$clr-text-blue: var(--clr-text-blue);
 $clr-modal-div: var(--clr-modal-div);
 $clr-modal-hover: var(--clr-modal-hover);
+$clr-add-btn-border: rgba(142, 142, 147, 0.5);
+$clr-add-bg: var(--clr-add-bg);
+$clr-search-bg: var(--clr-search-bg);
 
 // Body
 body {

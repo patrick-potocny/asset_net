@@ -1,0 +1,73 @@
+.add-asset {
+  width: 33em;
+  max-width: 100vw;
+  height: 23em;
+  background-color: $clr-add-bg;
+  border-radius: 1em;
+  padding: 0.5em;
+  padding-inline: 1em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+
+  .back-btn {
+    position: absolute;
+    left: 1em;
+    top: 0.7em;
+    display: flex;
+    gap: 0.2em;
+    color: $clr-text-blue;
+
+    &:hover {
+      transition: 0.2s ease-in;
+      scale: 1.2;
+      cursor: pointer;
+    }
+  }
+
+  .title {
+    font-size: 1.1em;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .search {
+    margin-inline: auto;
+    width: 100%;
+    position: relative;
+
+    &__icon {
+      position: absolute;
+      left: 0.5em;
+      transform: translateY(60%);
+    }
+
+    &__input {
+      width: 80%;
+      height: 2.3em;
+      margin-right: 2%;
+      border: none;
+      background-color: $clr-search-bg;
+      color: $clr-text;
+      border-radius: 0.6em;
+      padding-left: 2em;
+      outline: none;
+    }
+
+    &__btn {
+      width: 18%;
+      height: 2.3em;
+      background-color: $clr-search-bg;
+      color: $clr-text-blue;
+      border: none;
+      border-radius: 0.6em;
+
+      &:hover {
+        transition: 0.1s ease-in;
+        background-color: $clr-modal-hover;
+        cursor: pointer;
+      }
+    }
+  }
+}
