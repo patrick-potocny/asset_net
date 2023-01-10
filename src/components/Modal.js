@@ -8,7 +8,6 @@ function Modal({ isOpen, onClose, children }) {
     <>
       <div className="overlay closed" />
       <div className="content closed">
-        {children}
       </div>
     </>,
     document.getElementById('modal')

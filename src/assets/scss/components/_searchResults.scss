@@ -7,6 +7,12 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid $clr-modal-div;
+    
+    &:hover {
+      transition: 0.2s ease-in;
+      cursor: pointer;
+      background-color: $clr-search-bg;
+    }
 
     .symbol {
       font-size: 1.2em;
@@ -21,11 +27,12 @@
     &__add{
       width: 0.6em;
     }
-
-    &:hover {
-      transition: 0.2s ease-in;
-      cursor: pointer;
-      background-color: $clr-search-bg;
-    }
   }
+}
+
+.error {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: $clr-card-div;
+  text-align: center;
 }

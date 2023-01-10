@@ -18,6 +18,7 @@ module.exports = {
         "react",
         "jest"
     ],
-    "rules": {
-    },
+    "globals": {
+        "process": true
+      }
 }
