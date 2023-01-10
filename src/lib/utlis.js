@@ -91,4 +91,18 @@ function generateCryptoLabels(timeFrame) {
   return labels
 }
 
-export {processCryptoData}
+function processCryptoSearch(data) {
+  const results = []
+
+  for (const coin of data.data.coins) {
+    results.push({
+      id: coin.uuid,
+      symbol: coin.symbol,
+      name: coin.name
+    })
+  }
+
+  return results.slice(0, 4)
+}
+
+export {processCryptoData, processCryptoSearch}

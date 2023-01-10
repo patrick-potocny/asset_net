@@ -23,6 +23,7 @@ ChartJS.register(
 function LineChart({ data, changeColor }) {
   const changeClr = changeColor === 'green' ? "rgba(0,212,0" : "rgba(255,0,0"
   const options = {
+    animation: false,
     responsive: true,
     elements: {
       point: {

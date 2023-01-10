@@ -1,4 +1,4 @@
-import { processCryptoData } from "./utlis";
+import { processCryptoData, processCryptoSearch } from "./utlis";
 
 function getAssetsData() {
   const assetList = JSON.parse(localStorage.getItem('assetList'))
@@ -141,5 +141,134 @@ function getAssetData(asset) {
   return assetData
 }
 
+function getSearchResults(query, assetType) {
+  let searchResults = {}
+  if (assetType === 'crypto') {
+    const data = {
+      "status": "success",
+      "data": {
+        "coins": [
+          {
+            "uuid": "Qwsogvtv82FCd",
+            "iconUrl": "https://cdn.coinranking.com/bOabBYkcX/bitcoin_btc.svg",
+            "name": "Bitcoin",
+            "symbol": "BTC",
+            "price": "17205.175647409844"
+          },
+          {
+            "uuid": "x4WXHge-vvFY",
+            "iconUrl": "https://cdn.coinranking.com/o3-8cvCHu/wbtc[1].svg",
+            "name": "Wrapped BTC",
+            "symbol": "WBTC",
+            "price": "17233.280887140325"
+          },
+          {
+            "uuid": "upmyKdAQ",
+            "iconUrl": "https://cdn.coinranking.com/-7gU0iIDk/hbtc.svg",
+            "name": "Huobi BTC",
+            "symbol": "HBTC",
+            "price": "17222.330237392434"
+          },
+          {
+            "uuid": "h0XuVJXY",
+            "iconUrl": "https://cdn.coinranking.com/0Ss-HT19O/btcv.svg",
+            "name": "Bitcoin Vault",
+            "symbol": "BTCV",
+            "price": "2.4953321381769067"
+          },
+          {
+            "uuid": "bS_59f03V",
+            "iconUrl": "https://cdn.coinranking.com/mR6e9rFPH/btsssss.png",
+            "name": "Bitcoin Standard Hashrate Token",
+            "symbol": "BTCST",
+            "price": "0.8031654110588106"
+          },
+          {
+            "uuid": "urDJYnxOF",
+            "iconUrl": "https://cdn.coinranking.com/txiJjZI3Z/swbtc.png",
+            "name": "Compound Wrapped BTC",
+            "symbol": "CWBTC",
+            "price": "348.0966935061858"
+          },
+          {
+            "uuid": "h-3RuRkxHtpby",
+            "iconUrl": "https://cdn.coinranking.com/XejvJsgah/btcz.png",
+            "name": "BitcoinZ",
+            "symbol": "BTCZ",
+            "price": "0.000146280641182795"
+          },
+          {
+            "uuid": "sFRQRYxj4XZ",
+            "iconUrl": "https://cdn.coinranking.com/82djZtfJ8/photo_2021-05-11_22.png",
+            "name": "BTC 2x Flexible Leverage Index",
+            "symbol": "BTC2XFLI",
+            "price": "3.217772337912152"
+          }
+        ],
+        "exchanges": [
+          {
+            "uuid": "337ZWGygG",
+            "iconUrl": "https://cdn.coinranking.com/N2iVODQap/btcex.png",
+            "name": "BTCEX",
+            "recommended": false
+          },
+          {
+            "uuid": "BT5Shdx9aM",
+            "iconUrl": "https://cdn.coinranking.com/GhvYoBzhy/btcturk.svg",
+            "name": "BTCTurk",
+            "recommended": false
+          },
+          {
+            "uuid": "WuZx40XcSms",
+            "iconUrl": "https://cdn.coinranking.com/EuB2BwcGd/btcalpha.svg",
+            "name": "BTCAlpha",
+            "recommended": false
+          }
+        ],
+        "markets": [
+          {
+            "uuid": "MP77r-vKf4",
+            "baseSymbol": "BTC",
+            "quoteSymbol": "USDT",
+            "baseUuid": "Qwsogvtv82FCd",
+            "quoteUuid": "HIVsRcGKkPFtW",
+            "exchangeIconUrl": "https://cdn.coinranking.com/mDTK5qrmq/binance.svg",
+            "exchangeName": "Binance",
+            "exchangeUuid": "-zdvbieRdZ",
+            "recommended": true
+          },
+          {
+            "uuid": "ifeyn_cix4",
+            "baseSymbol": "BTC",
+            "quoteSymbol": "BUSD",
+            "baseUuid": "Qwsogvtv82FCd",
+            "quoteUuid": "vSo2fu9iE1s0Y",
+            "exchangeIconUrl": "https://cdn.coinranking.com/mDTK5qrmq/binance.svg",
+            "exchangeName": "Binance",
+            "exchangeUuid": "-zdvbieRdZ",
+            "recommended": true
+          },
+          {
+            "uuid": "BfkLiwAInu",
+            "baseSymbol": "BTC",
+            "quoteSymbol": "USD",
+            "baseUuid": "Qwsogvtv82FCd",
+            "quoteUuid": "yhjMzLPhuIDl",
+            "exchangeIconUrl": "https://cdn.coinranking.com/eTtnk9dDn/coinbase.svg",
+            "exchangeName": "Coinbase Pro",
+            "exchangeUuid": "qn5ZJmPFP",
+            "recommended": true
+          }
+        ]
+      }
+    }
 
-export {getAssetsData, getAssetData};
+    searchResults = processCryptoSearch(data)
+  } else if (assetType === 'stocks') {
+    console.log('searching for stocks');
+  }
+
+  return searchResults
+}
+
+export {getAssetsData, getAssetData, getSearchResults};

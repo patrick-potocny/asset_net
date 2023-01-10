@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import lessThan from "../assets/images/less-than.svg";
 import SegmentedPicker from "./SegmentedPicker";
+import SearchResults from './SearchResults';
 import { DarkModeCtx } from "../DarkModeCtx";
 import searchDark from "../assets/images/searchDarkMode.svg";
 import searchLight from "../assets/images/searchLightMode.svg";
@@ -10,8 +11,7 @@ function AddAsset({ onClose }) {
   const { darkMode } = useContext(DarkModeCtx);
   const [assetType, setAssetType] = useState("crypto");
   const [searchIcon, setSearchIcon] = useState(searchLight);
-  const [searchVal, setSearchVal] = useState("");
-
+  const [inputVal, setInputVal] = useState(false);
   const inputRef = useRef();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function AddAsset({ onClose }) {
     <div className="add-asset">
       <div className="back-btn" onClick={onClose}>
         <img src={lessThan} alt="<" />
-        Back
+        <span>Back</span>
       </div>
       <h2 className="title">Add Asset</h2>
       <SegmentedPicker
@@ -58,13 +58,14 @@ function AddAsset({ onClose }) {
           type="text"
           placeholder="Search"
           className="search__input"
-          value={searchVal}
-          onChange={(val) => setSearchVal(val.target.value)}
           onKeyDown={handleEnter}
           ref={inputRef}
         />
-        <button className="search__btn">Search</button>
+        <button className="search__btn" onClick={() => {setInputVal(document.getElementsByClassName('search__input')[0].value)}}>Search</button>
       </div>
+
+      {inputVal && <SearchResults value={inputVal} assetType={assetType} />}
+
     </div>
   );
 }

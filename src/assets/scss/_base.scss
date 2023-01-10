@@ -79,7 +79,15 @@ body {
 }
 
 @media (max-width: 400px) {
-  .controls-container {
-    font-size: 0.7rem;
+  #root {
+    .controls-container {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+    .add-asset {
+      font-size: 0.8rem;
   }
 }
