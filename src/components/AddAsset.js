@@ -25,7 +25,7 @@ function AddAsset({ onClose }) {
   }
 
   return (
-    <div className="add-asset">
+    <div className="add-asset container">
       <div className="back-btn" onClick={onClose}>
         <img src={lessThan} alt="<" />
         <span>Back</span>
@@ -64,7 +64,7 @@ function AddAsset({ onClose }) {
         <button className="search__btn" onClick={() => {setInputVal(document.getElementsByClassName('search__input')[0].value)}}>Search</button>
       </div>
 
-      {inputVal && <SearchResults value={inputVal} assetType={assetType} />}
+      {inputVal && <SearchResults value={inputVal} assetType={assetType} onClose={onClose}/>}
 
     </div>
   );

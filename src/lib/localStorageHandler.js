@@ -49,7 +49,7 @@ function addAsset(id, assetType) {
   }
   assetList.push(newAsset)
   localStorage.setItem("assetList", JSON.stringify(assetList));
-  return true
+  return newAsset
 }
 
 export {initLocalStorage, updateAsset, deleteAsset, addAsset};

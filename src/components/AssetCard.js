@@ -14,9 +14,8 @@ function AssetCard({ asset, updateTf }) {
 
   useEffect(() => {
     // Check if change is negative and if so change color and arrow
-    if (asset.change.includes("-")) {
+    if (!asset.rising) {
       setTriangle(redTriangle);
-      asset.change = asset.change.substring(1);
       setChangeColor("red");
     }
 
@@ -77,12 +76,12 @@ function AssetCard({ asset, updateTf }) {
           1M
         </button>
         <button
-          data-tf="6M"
+          data-tf="3M"
           data-id={asset.id}
           onClick={updateTf}
           className="time-frame-btn"
         >
-          6M
+          3M
         </button>
         <button
           data-tf="1Y"

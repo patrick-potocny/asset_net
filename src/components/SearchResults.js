@@ -1,21 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { getSearchResults } from "../lib/apiHandler";
+import { getAssetData, getSearchResults } from "../lib/apiHandler";
 import { addAsset } from "../lib/localStorageHandler";
 import {v4 as uuid} from 'uuid'
 import moreThanDark from "../assets/images/moreThanDark.svg";
 import moreThanLight from "../assets/images/moreThanLight.svg";
 import { DarkModeCtx } from "../DarkModeCtx";
 import Spinner from "./Spinner";
-// import { AssetDataCtx } from "../AssetDataCtx";
+import { AssetDataCtx } from "../AssetDataCtx";
 
-function SearchResults({ value, assetType }) {
+function SearchResults({ value, assetType, onClose }) {
   const [results, setResults] = useState("");
   const [moreThanIcon, setMoreThanIcon] = useState(moreThanLight);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { darkMode } = useContext(DarkModeCtx);
-  // const {assetData, setAssetData} = useContext(AssetDataCtx)
+  const {assetData, setAssetData} = useContext(AssetDataCtx)
 
   useEffect(() => {
     setMoreThanIcon(darkMode ? moreThanDark : moreThanLight);
@@ -37,18 +37,21 @@ function SearchResults({ value, assetType }) {
     fetchData();
   }, [value]);
 
-  function AddAsset(e) {
+  async function AddAsset(e) {
     const id = e.target.getAttribute("data-id");
 
     // Adds to localStorage
-    if (!addAsset(id, assetType)) {
+    const newAsset = addAsset(id, assetType)
+    if (!newAsset) {
       setError('This asset is already in portfolio')
       return
     }
 
     // Adds to assetData Ctx
-
-    
+    const newAssetData = await getAssetData(newAsset)
+    assetData.push(newAssetData)
+    setAssetData(assetData)
+    onClose()
   }
 
   if (loading) {
@@ -94,6 +97,7 @@ function SearchResults({ value, assetType }) {
 SearchResults.propTypes = {
   value: PropTypes.string.isRequired,
   assetType: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired
 };
 
 export default SearchResults;
