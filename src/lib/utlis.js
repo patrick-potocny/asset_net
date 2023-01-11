@@ -10,8 +10,11 @@ const cryptoTimeFrames = {
 function processCryptoData(data, asset) {
   let processedData = {
     symbol: data.data.coin.symbol,
-    name: (data.data.coin.name),
-    price: parseFloat(data.data.coin.price).toFixed(2),
+    name: data.data.coin.name,
+    price:
+      parseFloat(data.data.coin.price) > 100
+        ? parseFloat(data.data.coin.price).toFixed(2)
+        : parseFloat(data.data.coin.price).toFixed(7),
     change: data.data.coin.change,
     rising: true,
     id: asset.id,
@@ -24,13 +27,15 @@ function processCryptoData(data, asset) {
   };
 
   // checks if price is not null or zero meaning the coin is deprecated
-  if (data.data.coin.price) {
+  if (data.data.coin.price && data.data.coin.change) {
     if (processedData.change.includes("-")) {
       processedData.rising = false;
       processedData.change = processedData.change.substring(1);
     }
   } else {
-    processedData.name = "Not supported"
+    processedData.name = "Not avalible";
+    processedData.price = 0;
+    processedData.sparkline = {};
   }
 
   return processedData;

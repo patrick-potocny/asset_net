@@ -40,8 +40,15 @@ function LineChart({ data, changeColor }) {
           },
           maxTicksLimit: 5,
           callback: function(val) {
+            if (val < 0.0001) {
+              val = parseFloat(val).toFixed(7)
+            } else if (!Number.isInteger(val)) {
+                // rounds float to last 3 poin an removes trainling 0s
+                val = parseFloat(parseFloat(val).toFixed(3))
+              }
             return val + '$';
           },
+          
         },
         grid: {color: 'rgba(142, 142, 147, 0.3)'}
       },

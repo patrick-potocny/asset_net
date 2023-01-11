@@ -48,6 +48,7 @@ function SearchResults({ value, assetType, onClose }) {
     }
 
     // Adds to assetData Ctx
+    console.log(newAsset);
     const newAssetData = await getAssetData(newAsset)
     assetData.push(newAssetData)
     setAssetData(assetData)
