@@ -8,7 +8,7 @@ function initLocalStorage() {
       JSON.stringify([
         {
           id: "Qwsogvtv82FCd",
-          timeFrame: "3Y",
+          timeFrame: "1D",
           assetType: "crypto",
         },
       ])
