@@ -38,12 +38,14 @@ function deleteAsset(id) {
   localStorage.setItem("assetList", JSON.stringify(updatedData));
 }
 
-function addAsset(id, assetType) {
+function addAsset(id, name, assetType) {
   const assetList = JSON.parse(localStorage.getItem("assetList"));
+  // Check if asset is already in localStorage
   if (assetList.filter(asset => asset.id === id).length > 0) return false
 
   const newAsset = {
     id: id,
+    name: name,
     timeFrame: '1D',
     assetType: assetType
   }

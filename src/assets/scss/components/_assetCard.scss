@@ -21,6 +21,10 @@
   }
 
   &__info {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
     .symbol {
       display: inline-block;
       font-size: 1.6em;

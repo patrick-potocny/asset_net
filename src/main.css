@@ -140,7 +140,7 @@ body {
   align-items: center;
 }
 .header__logo {
-  width: 12em;
+  width: 12.3em;
   height: 2em;
 }
 .header__checkbox {
@@ -277,6 +277,11 @@ body {
   filter: brightness(1%);
   transform: scale(1.2);
   cursor: pointer;
+}
+.asset__info {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .asset__info .symbol {
   display: inline-block;
@@ -515,6 +520,7 @@ body {
   font-weight: 600;
   color: var(--clr-card-div);
   text-align: center;
+  margin-top: 10%;
 }
 
 .spinner {

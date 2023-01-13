@@ -2,21 +2,27 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import lessThan from "../assets/images/less-than.svg";
 import SegmentedPicker from "./SegmentedPicker";
-import SearchResults from './SearchResults';
+import SearchResults from "./SearchResults";
 import { DarkModeCtx } from "../DarkModeCtx";
 import searchDark from "../assets/images/searchDarkMode.svg";
 import searchLight from "../assets/images/searchLightMode.svg";
 
 function AddAsset({ onClose }) {
+  const currentAssetType = localStorage.getItem("assetType");
   const { darkMode } = useContext(DarkModeCtx);
-  const [assetType, setAssetType] = useState("crypto");
+  const [assetType, setAssetType] = useState(
+    currentAssetType === "all_assets" ? "crypto" : currentAssetType
+  );
   const [searchIcon, setSearchIcon] = useState(searchLight);
   const [inputVal, setInputVal] = useState(false);
-  const inputRef = useRef();
 
   useEffect(() => {
     setSearchIcon(darkMode ? searchDark : searchLight);
   }, [darkMode]);
+
+  useEffect(() => {
+    setInputVal(false);
+  }, [assetType]);
 
   function handleEnter(e) {
     if (e.key === "Enter") {
@@ -59,13 +65,26 @@ function AddAsset({ onClose }) {
           placeholder="Search"
           className="search__input"
           onKeyDown={handleEnter}
-          ref={inputRef}
         />
-        <button className="search__btn" onClick={() => {setInputVal(document.getElementsByClassName('search__input')[0].value)}}>Search</button>
+        <button
+          className="search__btn"
+          onClick={() => {
+            setInputVal(
+              document.getElementsByClassName("search__input")[0].value
+            );
+          }}
+        >
+          Search
+        </button>
       </div>
 
-      {inputVal && <SearchResults value={inputVal} assetType={assetType} onClose={onClose}/>}
-
+      {inputVal && (
+        <SearchResults
+          value={inputVal}
+          assetType={assetType}
+          onClose={onClose}
+        />
+      )}
     </div>
   );
 }

@@ -10,6 +10,7 @@ import {
   Tooltip,
   Filler,
 } from "chart.js";
+import { tickCallback } from "../lib/utlis";
 
 ChartJS.register(
   CategoryScale,
@@ -39,16 +40,7 @@ function LineChart({ data, changeColor }) {
             weight: 'bold'
           },
           maxTicksLimit: 5,
-          callback: function(val) {
-            if (val < 0.0001) {
-              val = parseFloat(val).toFixed(7)
-            } else if (!Number.isInteger(val)) {
-                // rounds float to last 3 poin an removes trainling 0s
-                val = parseFloat(parseFloat(val).toFixed(3))
-              }
-            return val + '$';
-          },
-          
+          callback: tickCallback,
         },
         grid: {color: 'rgba(142, 142, 147, 0.3)'}
       },
@@ -93,7 +85,7 @@ function LineChart({ data, changeColor }) {
 
   return (
     <div className="chart">
-      <Line id="myChart" options={options} data={chartData} />
+      <Line options={options} data={chartData} />
     </div>
   );
 }

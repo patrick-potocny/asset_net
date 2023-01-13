@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { getAssetData, getSearchResults } from "../lib/apiHandler";
 import { addAsset } from "../lib/localStorageHandler";
-import {v4 as uuid} from 'uuid'
 import moreThanDark from "../assets/images/moreThanDark.svg";
 import moreThanLight from "../assets/images/moreThanLight.svg";
 import { DarkModeCtx } from "../DarkModeCtx";
@@ -37,18 +36,15 @@ function SearchResults({ value, assetType, onClose }) {
     fetchData();
   }, [value]);
 
-  async function AddAsset(e) {
-    const id = e.target.getAttribute("data-id");
-
+  async function addClickedAsset(id, name) {
     // Adds to localStorage
-    const newAsset = addAsset(id, assetType)
+    const newAsset = addAsset(id, name, assetType)
     if (!newAsset) {
       setError('This asset is already in portfolio')
       return
     }
 
     // Adds to assetData Ctx
-    console.log(newAsset);
     const newAssetData = await getAssetData(newAsset)
     assetData.push(newAssetData)
     setAssetData(assetData)
@@ -83,7 +79,7 @@ function SearchResults({ value, assetType, onClose }) {
   return (
     <ul className="search-results" role="list">
       {results.map((result) => (
-        <li key={uuid()} data-id={result.id} className="result" onClick={AddAsset}>
+        <li key={result.id} className="result" onClick={() => addClickedAsset(result.id, result.name)}>
           <div className="result__info">
             <span className="symbol">{result.symbol}</span>
             <span className="name">{result.name}</span>

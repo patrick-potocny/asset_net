@@ -1,3 +1,34 @@
+import moment from "moment-timezone";
+
+function sortAssetData(assetData) {
+  const sortBy = JSON.parse(localStorage.getItem("assetList"));
+  assetData.sort(function (a, b) {
+    return (
+      sortBy.findIndex((item) => item.id === a.id) -
+      sortBy.findIndex((item) => item.id === b.id)
+    );
+  });
+}
+
+function calculateChange(latestPrice, earliestPrice) {
+  if (earliestPrice === 0) return 0;
+  const change = ((latestPrice - earliestPrice) / earliestPrice) * 100;
+  return parseFloat(change).toFixed(2);
+}
+
+function tickCallback(val) {
+  if (val === 0) {
+    val;
+  } else if (val < 0.0001) {
+    val = parseFloat(val).toFixed(7);
+  } else if (!Number.isInteger(val)) {
+    // rounds float to last 3 decimals and removes trainling 0s
+    val = parseFloat(parseFloat(val).toFixed(3));
+  }
+  return val + "$";
+}
+
+// CRYPTO
 const cryptoTimeFrames = {
   "1D": "24h",
   "1W": "7d",
@@ -123,7 +154,6 @@ function generateCryptoLabels(timeFrame) {
 
 function processCryptoSearch(data) {
   const results = [];
-
   for (const coin of data.data.coins) {
     results.push({
       id: coin.uuid,
@@ -135,14 +165,94 @@ function processCryptoSearch(data) {
   return results.slice(0, 4);
 }
 
-function sortAssetData(assetData) {
-  const sortBy = JSON.parse(localStorage.getItem("assetList"));
-  assetData.sort(function (a, b) {
-    return (
-      sortBy.findIndex((item) => item.id === a.id) -
-      sortBy.findIndex((item) => item.id === b.id)
-    );
-  });
+// STOCKS
+const stocksTimeFrames = {
+  "1D": "TIME_SERIES_INTRADAY",
+  "1W": "TIME_SERIES_DAILY",
+  "1M": "TIME_SERIES_DAILY",
+  "3M": "TIME_SERIES_WEEKLY",
+  "1Y": "TIME_SERIES_MONTHLY",
+  "3Y": "TIME_SERIES_MONTHLY",
+};
+
+const stocksDateFormating = {
+  "1D": [16, "HH:mm"],
+  "1W": [7, "ddd"],
+  "1M": [24, "D/M"],
+  "3M": [15, "MMM"],
+  "1Y": [13, "MMM"],
+  "3Y": [37, "YYYY"],
+};
+
+function processStocksData(data, asset) {
+  const prices = processStocksPrices(
+    data[Object.keys(data)[1]],
+    asset.timeFrame
+  );
+  const latestPrice = prices[Object.keys(prices)[0]];
+  const earliestPrice =
+    prices[Object.keys(prices)[Object.keys(prices).length - 1]];
+  const labels = Object.keys(prices).reverse();
+  labels[0] = "";
+  const sparklineData = Object.values(prices).reverse();
+
+  let processedData = {
+    symbol: asset.id,
+    name: asset.name,
+    price:
+      parseFloat(latestPrice) > 100
+        ? parseFloat(latestPrice).toFixed(2)
+        : parseFloat(latestPrice).toFixed(7),
+    change: calculateChange(latestPrice, earliestPrice),
+    id: asset.id,
+    assetType: asset.assetType,
+    timeFrame: asset.timeFrame,
+    sparkline: {
+      labels: labels,
+      data: sparklineData,
+    },
+  };
+  processedData.rising = processedData.change > 0 ? true : false;
+  return processedData;
+}
+
+function processStocksPrices(pricesObj, timeFrame) {
+  const processedPrices = {};
+
+  function getFirstNprices(n) {
+    const array = Object.entries(pricesObj);
+    const firstNprices = array.slice(0, n);
+    const newObj = Object.fromEntries(firstNprices);
+    return newObj;
+  }
+
+  function convertToCurrentTZ(prices, format) {
+    for (const key in prices) {
+      const easternDate = moment.tz(key, "America/New_York");
+      const newDate = easternDate.clone().tz(moment.tz.guess());
+      processedPrices[newDate.format(format)] = prices[key]["4. close"];
+    }
+  }
+
+  const prices = getFirstNprices(stocksDateFormating[timeFrame][0]);
+  convertToCurrentTZ(prices, stocksDateFormating[timeFrame][1]);
+
+  return processedPrices;
+}
+
+function processStocksSearch(data) {
+  const results = [];
+  for (const stock of data.bestMatches) {
+    // Other regions are not supported
+    if (stock["4. region"] === "United States" && stock['3. type'] === "Equity") {
+      results.push({
+        id: stock["1. symbol"],
+        symbol: stock["1. symbol"],
+        name: stock["2. name"],
+      });
+    }
+  }
+  return results.slice(0, 4);
 }
 
 export {
@@ -150,4 +260,8 @@ export {
   processCryptoSearch,
   cryptoTimeFrames,
   sortAssetData,
+  stocksTimeFrames,
+  processStocksData,
+  processStocksSearch,
+  tickCallback,
 };
