@@ -84,9 +84,7 @@ function LineChart({ data, changeColor }) {
   };
 
   return (
-    <div className="chart">
       <Line options={options} data={chartData} />
-    </div>
   );
 }
 

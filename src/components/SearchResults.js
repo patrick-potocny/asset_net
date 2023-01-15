@@ -14,7 +14,7 @@ function SearchResults({ value, assetType, onClose }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { darkMode } = useContext(DarkModeCtx);
-  const {assetData, setAssetData} = useContext(AssetDataCtx)
+  const {setAssetData} = useContext(AssetDataCtx)
 
   useEffect(() => {
     setMoreThanIcon(darkMode ? moreThanDark : moreThanLight);
@@ -46,8 +46,7 @@ function SearchResults({ value, assetType, onClose }) {
 
     // Adds to assetData Ctx
     const newAssetData = await getAssetData(newAsset)
-    assetData.push(newAssetData)
-    setAssetData(assetData)
+    setAssetData(current => [...current, newAssetData])
     onClose()
   }
 

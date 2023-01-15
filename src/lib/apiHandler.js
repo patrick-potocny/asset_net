@@ -8,6 +8,23 @@ import {
   sortAssetData,
 } from "./utlis";
 import axios from "axios";
+// import { createKeyIterator } from "./utlis";
+
+// const keyIterator = createKeyIterator()
+
+async function makeApiCall(options) {
+  try {
+    const response = await axios.request(options);
+    return response;
+  } catch (e) {
+    if (e.response.status === 429) {
+      alert(
+        "Too many requests\nThis app uses free APIs that limits the requests per minute.\nTry again in a minute"
+      );
+    }
+    return {};
+  }
+}
 
 async function getAssetsData() {
   const assetList = JSON.parse(localStorage.getItem("assetList"));
@@ -38,11 +55,10 @@ async function getAssetData(asset) {
         },
       };
 
-
-      const data = await axios.request(options);
+      const data = await makeApiCall(options);
       assetData = processCryptoData(data.data, asset);
       break;
-    } 
+    }
     case "stocks": {
       const options = {
         method: "GET",
@@ -58,11 +74,11 @@ async function getAssetData(asset) {
           "X-RapidAPI-Host": "alpha-vantage.p.rapidapi.com",
         },
       };
-      
+
       if (options.params.function === "TIME_SERIES_INTRADAY")
         options.params.interval = "60min";
 
-      const data = await axios.request(options);
+      const data = await makeApiCall(options);
       assetData = processStocksData(data.data, asset);
       break;
     }
@@ -83,21 +99,25 @@ async function getSearchResults(query, assetType) {
         },
       };
 
-      const response = await axios.request(options);
+      const response = await makeApiCall(options);
       return processCryptoSearch(response.data);
-    } 
+    }
     case "stocks": {
       const options = {
         method: "GET",
         url: "https://alpha-vantage.p.rapidapi.com/query",
-        params: { keywords: query, function: "SYMBOL_SEARCH", datatype: "json" },
+        params: {
+          keywords: query,
+          function: "SYMBOL_SEARCH",
+          datatype: "json",
+        },
         headers: {
           "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
           "X-RapidAPI-Host": "alpha-vantage.p.rapidapi.com",
         },
       };
 
-      const response = await axios.request(options);
+      const response = await makeApiCall(options);
       return processStocksSearch(response.data);
     }
   }

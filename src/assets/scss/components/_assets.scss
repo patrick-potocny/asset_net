@@ -1,11 +1,13 @@
 .assets {
   margin-top: 1em;
+  max-width: 90vw;
+  margin-inline: auto;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(18.75em, 18.75em));
   grid-gap: 1em;
 
-  .add-asset-btn {
+  &__add {
     width: 18.75em;
     height: 18.75em;
     border: 3px solid $clr-add-btn-border;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import LineChart from "./LineChart";
 import Modal from "./Modal";
@@ -6,11 +6,15 @@ import DelAsset from "./DelAsset";
 import removeIcon from "../assets/images/closeIcon.svg";
 import greenTriangle from "../assets/images/greenTriangle.svg";
 import redTriangle from "../assets/images/redTriangle.svg";
+import { updateTf } from "../lib/utlis";
+import { AssetDataCtx } from "../AssetDataCtx";
 
-function AssetCard({ asset, updateTf }) {
+function AssetCard({ asset }) {
+  const { assetData, setAssetData } = useContext(AssetDataCtx);
   const [triangle, setTriangle] = useState(greenTriangle);
   const [changeColor, setChangeColor] = useState("green");
   const [isOpen, setIsOpen] = useState(false);
+  const timeFrames = ["1D", "1W", "1M", "3M", "1Y", "3Y"];
 
   useEffect(() => {
     // Check if change is negative and if so change color and arrow
@@ -18,11 +22,6 @@ function AssetCard({ asset, updateTf }) {
       setTriangle(redTriangle);
       setChangeColor("red");
     }
-
-    // Give selected class to btn based on time frame
-    document
-      .querySelector(`[data-id="${asset.id}"][data-tf="${asset.timeFrame}"]`)
-      .classList.add("selected");
   }, []);
 
   return (
@@ -35,7 +34,11 @@ function AssetCard({ asset, updateTf }) {
         alt="remove"
       />
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <DelAsset assetId={asset.id} assetSymbol={asset.symbol} onClose={() => setIsOpen(false)} />
+        <DelAsset
+          assetId={asset.id}
+          assetSymbol={asset.symbol}
+          onClose={() => setIsOpen(false)}
+        />
       </Modal>
       <div className="asset__info">
         <p className="symbol">{asset.symbol}</p>
@@ -51,54 +54,19 @@ function AssetCard({ asset, updateTf }) {
       </div>
       <hr className="asset__divider" />
       <div className="asset__time-frame">
-        <button
-          data-tf="1D"
-          data-id={asset.id}
-          onClick={updateTf}
-          className="time-frame-btn"
-        >
-          1D
-        </button>
-        <button
-          data-tf="1W"
-          data-id={asset.id}
-          onClick={updateTf}
-          className="time-frame-btn"
-        >
-          1W
-        </button>
-        <button
-          data-tf="1M"
-          data-id={asset.id}
-          onClick={updateTf}
-          className="time-frame-btn"
-        >
-          1M
-        </button>
-        <button
-          data-tf="3M"
-          data-id={asset.id}
-          onClick={updateTf}
-          className="time-frame-btn"
-        >
-          3M
-        </button>
-        <button
-          data-tf="1Y"
-          data-id={asset.id}
-          onClick={updateTf}
-          className="time-frame-btn"
-        >
-          1Y
-        </button>
-        <button
-          data-tf="3Y"
-          data-id={asset.id}
-          onClick={updateTf}
-          className="time-frame-btn"
-        >
-          3Y
-        </button>
+        {timeFrames.map((tf) => (
+          <button
+            key={tf}
+            onClick={() => {
+              updateTf(asset.id, tf, assetData, setAssetData);
+            }}
+            className={`time-frame-btn ${
+              tf === asset.timeFrame ? "selected" : ""
+            }`}
+          >
+            {tf}
+          </button>
+        ))}
       </div>
       <hr className="asset__divider" />
       <LineChart data={asset.sparkline} changeColor={changeColor} />
@@ -108,7 +76,6 @@ function AssetCard({ asset, updateTf }) {
 
 AssetCard.propTypes = {
   asset: PropTypes.object.isRequired,
-  updateTf: PropTypes.func.isRequired,
 };
 
 export default AssetCard;

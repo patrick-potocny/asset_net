@@ -1,4 +1,22 @@
 import moment from "moment-timezone";
+import { updateAsset } from "./localStorageHandler";
+import { getAssetData } from "./apiHandler";
+
+// Rolling api keys to avoid too much request error(429)
+function createKeyIterator() {
+  const apiKeys = [
+    process.env.REACT_APP_API_KEY_1,
+    process.env.REACT_APP_API_KEY_2,
+    process.env.REACT_APP_API_KEY_3
+  ]
+  let currentIndex = 0;
+
+  return function() {
+    const nextValue = apiKeys[currentIndex];
+    currentIndex = (currentIndex + 1) % apiKeys.length;
+    return nextValue;
+  }
+}
 
 function sortAssetData(assetData) {
   const sortBy = JSON.parse(localStorage.getItem("assetList"));
@@ -26,6 +44,17 @@ function tickCallback(val) {
     val = parseFloat(parseFloat(val).toFixed(3));
   }
   return val + "$";
+}
+
+async function updateTf(id, newTf, assetData, setAssetData) {
+  // Updates localStorage
+  const updatedAsset = updateAsset(id, newTf);
+  // Updates assetData
+  let updatedData = await getAssetData(updatedAsset);
+  const updatedAssetData = assetData.map((item) =>
+    item.id === id ? updatedData : item
+  );
+  setAssetData(updatedAssetData);
 }
 
 // CRYPTO
@@ -264,4 +293,6 @@ export {
   processStocksData,
   processStocksSearch,
   tickCallback,
+  createKeyIterator,
+  updateTf
 };

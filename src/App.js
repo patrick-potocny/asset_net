@@ -7,6 +7,7 @@ import { AssetDataCtx } from "./AssetDataCtx";
 import { DarkModeCtx } from "./DarkModeCtx";
 import { getAssetsData } from ".//lib/apiHandler";
 
+
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [assetType, setAssetType] = useState(localStorage.getItem("assetType"));

@@ -59,35 +59,52 @@ body {
 }
 
 // Util classes 
-.container {
-  margin-inline: 3em;
-}
-
 .flex {
   display: flex;
+}
+
+.error {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: $clr-card-div;
+  text-align: center;
+  margin-top: 10%;
 }
 
 // Media queries
 @media (max-width: 600px) {
   .header{
-    font-size: 0.7rem;
-  }
-
-  .container {
-    margin-inline: 1em;
+    font-size: clamp(0.6em, 2.26vw, 1em);
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 684px) {
+  
   #root {
     .controls-container {
-      font-size: 0.7rem;
+      font-size: 0.9em
+    }
+  }
+}
+
+@media (max-width: 410px) {
+  .assets {
+    font-size: clamp(0.8em, 4.5vw, 1em);
+  }
+
+  #root {
+    .controls-container {
+      font-size: clamp(0.7em, 3vw, 0.95em)
     }
   }
 }
 
 @media (max-width: 500px) {
-    .add-asset {
-      font-size: 0.8rem;
+  .add-asset {
+    font-size: 0.8em;
+
+    .controls-container {
+      font-size: 0.9em;
+    }
   }
 }

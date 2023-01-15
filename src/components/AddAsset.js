@@ -8,13 +8,15 @@ import searchDark from "../assets/images/searchDarkMode.svg";
 import searchLight from "../assets/images/searchLightMode.svg";
 
 function AddAsset({ onClose }) {
-  const currentAssetType = localStorage.getItem("assetType");
   const { darkMode } = useContext(DarkModeCtx);
+  const currentAssetType = localStorage.getItem("assetType");
   const [assetType, setAssetType] = useState(
     currentAssetType === "all_assets" ? "crypto" : currentAssetType
   );
   const [searchIcon, setSearchIcon] = useState(searchLight);
   const [inputVal, setInputVal] = useState(false);
+  const inputRef = useRef(null);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     setSearchIcon(darkMode ? searchDark : searchLight);
@@ -26,17 +28,17 @@ function AddAsset({ onClose }) {
 
   function handleEnter(e) {
     if (e.key === "Enter") {
-      document.getElementsByClassName("search__btn")[0].click();
+      buttonRef.current.click();
     }
   }
 
   return (
-    <div className="add-asset container">
-      <div className="back-btn" onClick={onClose}>
+    <div className="add-asset">
+      <div className="add-asset__back-btn" onClick={onClose}>
         <img src={lessThan} alt="<" />
         <span>Back</span>
       </div>
-      <h2 className="title">Add Asset</h2>
+      <h2 className="add-asset__title">Add Asset</h2>
       <SegmentedPicker
         name="search-asset-type"
         callback={(val) => {
@@ -58,21 +60,21 @@ function AddAsset({ onClose }) {
         defaultOption={assetType}
       />
 
-      <div className="search">
-        <img className="search__icon" src={searchIcon} alt="Magnifying glass" />
+      <div className="add-asset__search">
+        <img className="icon" src={searchIcon} alt="Magnifying glass" />
         <input
           type="text"
           placeholder="Search"
-          className="search__input"
+          className="input"
           onKeyDown={handleEnter}
+          ref={inputRef}
         />
         <button
-          className="search__btn"
+          className="btn"
           onClick={() => {
-            setInputVal(
-              document.getElementsByClassName("search__input")[0].value
-            );
+            setInputVal(inputRef.current.value);
           }}
+          ref={buttonRef}
         >
           Search
         </button>

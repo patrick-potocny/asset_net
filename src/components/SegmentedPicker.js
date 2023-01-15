@@ -25,7 +25,7 @@ function SegmentedPicker({ name, options, callback, controlRef, defaultOption}) 
   };
 
   return (
-    <div className="container controls-container" ref={controlRef}>
+    <div className="controls-container" ref={controlRef}>
       <div className={`controls ${componentReady.current ? "ready" : "idle"}`}>
         {options?.map((item, i) => (
           <div

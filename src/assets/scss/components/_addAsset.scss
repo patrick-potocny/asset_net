@@ -10,7 +10,7 @@
   flex-direction: column;
   gap: 0.8em;
 
-  .back-btn {
+  &__back-btn {
     position: absolute;
     left: 1em;
     top: 0.7em;
@@ -33,24 +33,24 @@
     }
   }
 
-  .title {
+  &__title {
     font-size: 1.1em;
     text-align: center;
     font-weight: 600;
   }
 
-  .search {
+  &__search {
     margin-inline: 1.5em;
     position: relative;
 
-    &__icon {
+    .icon {
       width: 1em;
       position: absolute;
       left: 0.5em;
       transform: translateY(60%);
     }
 
-    &__input {
+    .input {
       width: 80%;
       height: 2.3em;
       margin-right: 2%;
@@ -62,7 +62,7 @@
       outline: none;
     }
 
-    &__btn {
+    .btn {
       width: 18%;
       height: 2.3em;
       background-color: $clr-search-bg;
