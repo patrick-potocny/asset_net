@@ -9,7 +9,7 @@ import Spinner from "./Spinner";
 import { AssetDataCtx } from "../AssetDataCtx";
 
 function SearchResults({ value, assetType, onClose }) {
-  const [results, setResults] = useState("");
+  const [results, setResults] = useState([]);
   const [moreThanIcon, setMoreThanIcon] = useState(moreThanLight);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -26,6 +26,8 @@ function SearchResults({ value, assetType, onClose }) {
       setError(null);
       try {
         const response = await getSearchResults(value, assetType);
+        console.log(response);
+        console.log(getSearchResults);
         setResults(response);
         setLoading(false);
       } catch (e) {

@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AssetCard component should render correctly 1`] = `
+<div>
+  <div
+    class="asset"
+  >
+    <img
+      alt="remove"
+      class="asset__remove"
+      data-id="Qwsogvtv82FCd"
+      src="closeIcon.svg"
+    />
+    <div
+      data-testid="mock-modal"
+    >
+      isOpen is 
+      false
+    </div>
+    <div
+      class="asset__info"
+    >
+      <p
+        class="symbol"
+      >
+        BTC
+      </p>
+      <span
+        class="name"
+      >
+        Bitcoin
+      </span>
+      <hr
+        class="info-divider"
+      />
+      <div
+        class="flex"
+      >
+        <p
+          class="price"
+        >
+          21088.66
+           $
+        </p>
+        <div
+          class="change"
+        >
+          <img
+            alt="triangle"
+            class="change__triangle"
+            src="greenTriangle.svg"
+          />
+          <p
+            class="change__number green"
+          >
+            1.15
+            %
+          </p>
+        </div>
+      </div>
+    </div>
+    <hr
+      class="asset__divider"
+    />
+    <div
+      class="asset__time-frame"
+    >
+      <button
+        class="time-frame-btn selected"
+      >
+        1D
+      </button>
+      <button
+        class="time-frame-btn "
+      >
+        1W
+      </button>
+      <button
+        class="time-frame-btn "
+      >
+        1M
+      </button>
+      <button
+        class="time-frame-btn "
+      >
+        3M
+      </button>
+      <button
+        class="time-frame-btn "
+      >
+        1Y
+      </button>
+      <button
+        class="time-frame-btn "
+      >
+        3Y
+      </button>
+    </div>
+    <hr
+      class="asset__divider"
+    />
+    <div>
+      Line Chart
+    </div>
+  </div>
+</div>
+`;

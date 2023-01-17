@@ -33,6 +33,7 @@ function AssetCard({ asset }) {
         src={removeIcon}
         alt="remove"
       />
+
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <DelAsset
           assetId={asset.id}
@@ -40,6 +41,7 @@ function AssetCard({ asset }) {
           onClose={() => setIsOpen(false)}
         />
       </Modal>
+
       <div className="asset__info">
         <p className="symbol">{asset.symbol}</p>
         <span className="name">{asset.name}</span>
@@ -52,7 +54,9 @@ function AssetCard({ asset }) {
           </div>
         </div>
       </div>
+      
       <hr className="asset__divider" />
+
       <div className="asset__time-frame">
         {timeFrames.map((tf) => (
           <button
@@ -68,7 +72,9 @@ function AssetCard({ asset }) {
           </button>
         ))}
       </div>
+
       <hr className="asset__divider" />
+
       <LineChart data={asset.sparkline} changeColor={changeColor} />
     </div>
   );

@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.2",
     "chart.js": "^4.1.1",
@@ -42,8 +41,12 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
     "eslint": "^8.30.0",
     "eslint-plugin-jest": "^27.1.7",
     "eslint-plugin-react": "^7.31.11"
+  },
+  "jest" : {
+    "resetMocks": false
   }
 }

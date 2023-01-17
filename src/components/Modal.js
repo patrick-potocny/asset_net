@@ -6,7 +6,7 @@ function Modal({ isOpen, onClose, children }) {
   // Done like this to be able to animate the modal in css
   if (!isOpen) return createPortal(
     <>
-      <div className="overlay closed" />
+      <div data-testid="overlay" className="overlay closed" />
       <div className="content closed">
       </div>
     </>,
@@ -15,7 +15,7 @@ function Modal({ isOpen, onClose, children }) {
 
   return createPortal(
     <>
-      <div onClick={onClose} className="overlay open" />
+      <div data-testid="overlay" onClick={onClose} className="overlay open" />
       <div className="content open">
         {children}
       </div>

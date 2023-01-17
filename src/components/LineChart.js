@@ -22,7 +22,7 @@ ChartJS.register(
 );
 
 function LineChart({ data, changeColor }) {
-  const changeClr = changeColor === 'green' ? "rgba(0,212,0" : "rgba(255,0,0"
+  const changeClr = changeColor === "green" ? "rgba(0,212,0" : "rgba(255,0,0";
   const options = {
     animation: false,
     responsive: true,
@@ -33,34 +33,34 @@ function LineChart({ data, changeColor }) {
     },
     scales: {
       y: {
-        position: 'right',
+        position: "right",
         ticks: {
           font: {
             size: 13,
-            weight: 'bold'
+            weight: "bold",
           },
           maxTicksLimit: 5,
           callback: tickCallback,
         },
-        grid: {color: 'rgba(142, 142, 147, 0.3)'}
+        grid: { color: "rgba(142, 142, 147, 0.3)" },
       },
       x: {
         ticks: {
           font: {
             size: 13,
-            weight: 'bold',
+            weight: "bold",
           },
           maxRotation: 0,
-          maxTicksLimit: 4
-         },
-         grid: {color: 'rgba(142, 142, 147, 0.3)'}
-      }
+          maxTicksLimit: 4,
+        },
+        grid: { color: "rgba(142, 142, 147, 0.3)" },
+      },
     },
     plugins: {
       tooltip: {
         displayColors: false,
-      }
-    }
+      },
+    },
   };
 
   const chartData = {
@@ -77,15 +77,13 @@ function LineChart({ data, changeColor }) {
           gradient.addColorStop(1, `${changeClr},0)`);
           return gradient;
         },
-        pointBackgroundColor: 'transparent',
-        pointBorderColor: 'transparent',
+        pointBackgroundColor: "transparent",
+        pointBorderColor: "transparent",
       },
     ],
   };
 
-  return (
-      <Line options={options} data={chartData} />
-  );
+  return <Line options={options} data={chartData} />;
 }
 
 LineChart.propTypes = {

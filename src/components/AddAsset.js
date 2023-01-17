@@ -13,7 +13,7 @@ function AddAsset({ onClose }) {
   const [assetType, setAssetType] = useState(
     currentAssetType === "all_assets" ? "crypto" : currentAssetType
   );
-  const [searchIcon, setSearchIcon] = useState(searchLight);
+  const [searchIcon, setSearchIcon] = useState(null);
   const [inputVal, setInputVal] = useState(false);
   const inputRef = useRef(null);
   const buttonRef = useRef(null);

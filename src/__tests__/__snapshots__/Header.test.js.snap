@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should match snapshot 1`] = `
+<div>
+  <header
+    class="header"
+  >
+    <img
+      alt="AssetNet"
+      class="header__logo"
+      src="logoDark.svg"
+    />
+    <div
+      class="header__toggle"
+    >
+      <input
+        class="header__checkbox"
+        data-testid="dark-mode-toggle"
+        id="checkbox"
+        type="checkbox"
+      />
+      <label
+        class="header__label"
+        for="checkbox"
+      >
+        <div
+          class="header__ball"
+        >
+          <img
+            alt="mode-icon"
+            src="sun.svg"
+          />
+        </div>
+      </label>
+    </div>
+  </header>
+</div>
+`;

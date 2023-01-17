@@ -6,9 +6,10 @@ import Spinner from "./components/Spinner";
 import { AssetDataCtx } from "./AssetDataCtx";
 import { DarkModeCtx } from "./DarkModeCtx";
 import { getAssetsData } from ".//lib/apiHandler";
-
+import { initLocalStorage } from './lib/localStorageHandler'
 
 function App() {
+  initLocalStorage()
   const [darkMode, setDarkMode] = useState(false);
   const [assetType, setAssetType] = useState(localStorage.getItem("assetType"));
   const [assetData, setAssetData] = useState([]);

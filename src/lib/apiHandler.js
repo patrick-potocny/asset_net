@@ -86,7 +86,7 @@ async function getAssetData(asset) {
   return assetData;
 }
 
-async function getSearchResults(query, assetType) {
+async function  getSearchResults(query, assetType) {
   switch (assetType) {
     case "crypto": {
       const options = {

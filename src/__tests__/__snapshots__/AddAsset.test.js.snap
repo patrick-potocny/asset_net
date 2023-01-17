@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddAsset component should render correctly 1`] = `
+<div>
+  <div
+    class="add-asset"
+  >
+    <div
+      class="add-asset__back-btn"
+    >
+      <img
+        alt="<"
+        src="less-than.svg"
+      />
+      <span>
+        Back
+      </span>
+    </div>
+    <h2
+      class="add-asset__title"
+    >
+      Add Asset
+    </h2>
+    <div>
+      Segmented Picker
+    </div>
+    <div
+      class="add-asset__search"
+    >
+      <img
+        alt="Magnifying glass"
+        class="icon"
+        src="searchLightMode.svg"
+      />
+      <input
+        class="input"
+        placeholder="Search"
+        type="text"
+      />
+      <button
+        class="btn"
+      >
+        Search
+      </button>
+    </div>
+  </div>
+</div>
+`;

@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SegmentedPicker component should properly render SegmentedPicker compared to snapshot 1`] = `
+exports[`SegmentedPicker component should properly render SegmentedPicker 1`] = `
 <div>
   <div
-    class="container controls-container"
+    class="controls-container"
     style="--highlight-width: 0px; --highlight-x-pos: 0px;"
   >
     <div

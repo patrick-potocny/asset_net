@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Assets component should render properly 1`] = `
+<div>
+  <div
+    class="assets"
+  >
+    <div
+      data-testid="asset-card"
+    >
+      AAPL
+    </div>
+    <div
+      data-testid="asset-card"
+    >
+      MSFT
+    </div>
+    <div
+      class="assets__add"
+    >
+      <img
+        alt="Add"
+        src="plus.svg"
+      />
+    </div>
+    <div
+      data-testid="mock-modal"
+    >
+      isOpen is 
+      false
+    </div>
+  </div>
+</div>
+`;

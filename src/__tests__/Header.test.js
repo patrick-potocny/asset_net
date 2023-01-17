@@ -1,40 +1,34 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
+import { DarkModeCtx } from "../DarkModeCtx";
 import Header from "../components/Header";
-import '@testing-library/jest-dom/extend-expect';
+import {screen} from '@testing-library/dom'
+import userEvent from "@testing-library/user-event";
 
-describe("Header component", () => {
-  test("renders the correct logo based on dark mode state", () => {
-    render(<Header />);
-
-    // Check that the logoDark is rendered
-    expect(screen.getByAltText("AssetNet")).toHaveAttribute("src", "logoDark.svg");
-    // Check that the icon is rendered
-    expect(screen.getByAltText("mode-icon")).toBeInTheDocument();
-
-    // Toggle dark mode
-    fireEvent.click(screen.getByAltText("mode-icon").closest("label"));
-
-    // Check that the logoDark is rendered
-    expect(screen.getByAltText("AssetNet")).toHaveAttribute("src", "logoLight.svg");
-  });
-
-  test("toggles dark mode when the toggle is clicked", () => {
-    render(<Header />);
-
-    // Check that light mode is enabled
-    expect(screen.getByTestId("dark-mode-toggle")).toBeChecked();
-
-    // Toggle dark mode
-    fireEvent.click(screen.getByAltText("mode-icon").closest("label"));
-
-    // Check that dark mode is now enabled
-    expect(screen.getByTestId('dark-mode-toggle')).not.toBeChecked();
-  });
-
-  test("saves the mode in local storage", () => {
-    render(<Header />);
+describe('Header component', () => {
+  test('should match snapshot', () => {
+    const { container } = render(
+      <DarkModeCtx.Provider value={{ darkMode: false, setDarkMode: jest.fn() }}>
+        <Header />
+      </DarkModeCtx.Provider>
+    );
     
-    expect(localStorage.getItem("darkMode")).toBe("false");
+    expect(container).toMatchSnapshot();
+  });
+
+  test("call context with true when toggle is clicked", () => {
+    const setDarkMode = jest.fn()
+  
+    render(
+      <DarkModeCtx.Provider value={{ darkMode: false, setDarkMode }}>
+        <Header />
+      </DarkModeCtx.Provider>
+    );
+  
+    const toggle = screen.getByTestId("dark-mode-toggle");
+    expect(toggle.checked).toEqual(false);
+  
+    userEvent.click(toggle)
+    expect(setDarkMode).toHaveBeenCalledWith(true)
   });
 });
