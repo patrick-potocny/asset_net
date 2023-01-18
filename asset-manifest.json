@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/asset_net/static/css/main.ca313d14.css",
+    "main.js": "/asset_net/static/js/main.9e0fa7e1.js",
+    "static/media/logoLight.svg": "/asset_net/static/media/logoLight.5229abd5d8b980dd4e9ab11b35ff041f.svg",
+    "static/media/logoDark.svg": "/asset_net/static/media/logoDark.80b4aa1ddd48f22fb2e0b8a908380f83.svg",
+    "static/media/sun.svg": "/asset_net/static/media/sun.cf1f61de6ac7350f5edbccf481590440.svg",
+    "index.html": "/asset_net/index.html",
+    "static/media/moon.svg": "/asset_net/static/media/moon.958a23ec0a053c48eb3f50385f3048c2.svg",
+    "static/media/closeIcon.svg": "/asset_net/static/media/closeIcon.cb31c7eadea73ddbbd1226089cf4e461.svg",
+    "static/media/searchLightMode.svg": "/asset_net/static/media/searchLightMode.8a86a98cf46961b3c2ce3e55b7ae180b.svg",
+    "static/media/searchDarkMode.svg": "/asset_net/static/media/searchDarkMode.7a8af825e683a6a65d01393c865c20b0.svg",
+    "static/media/plus.svg": "/asset_net/static/media/plus.58c249dd68a70c93561775d449782923.svg",
+    "static/media/moreThanDark.svg": "/asset_net/static/media/moreThanDark.113a1909c2f0def0c655892817525c50.svg",
+    "static/media/moreThanLight.svg": "/asset_net/static/media/moreThanLight.467b5c5b816a14d37a38178463cdb1a1.svg",
+    "static/media/less-than.svg": "/asset_net/static/media/less-than.9c7b583d2568df11443f1d225a8f1769.svg",
+    "static/media/redTriangle.svg": "/asset_net/static/media/redTriangle.d3409a869b9ce9ca27d39e51404405c4.svg",
+    "static/media/greenTriangle.svg": "/asset_net/static/media/greenTriangle.a8db23fd90f64b8cd6b8e61a03329d8f.svg",
+    "main.ca313d14.css.map": "/asset_net/static/css/main.ca313d14.css.map",
+    "main.9e0fa7e1.js.map": "/asset_net/static/js/main.9e0fa7e1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ca313d14.css",
+    "static/js/main.9e0fa7e1.js"
+  ]
+}

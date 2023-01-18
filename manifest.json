@@ -1,0 +1,24 @@
+{
+  "short_name": "AssetNet",
+  "name": "AssetNet: Keep track of your digital assets.",
+  "description": "Select any cryptocurrencies or stocks and display their price and performance.",
+  "icons": [
+    {
+      "src": "/static/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/static/android-chrome-256x256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "categories": ["business", "finance"],
+  "id": "/",
+  "scope": "/"
+}
