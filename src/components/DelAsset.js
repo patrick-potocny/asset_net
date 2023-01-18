@@ -6,11 +6,10 @@ import { AssetDataCtx } from "../AssetDataCtx";
 function DelAsset({ assetId, assetSymbol, onClose }) {
   const { assetData, setAssetData } = useContext(AssetDataCtx);
 
-  function removeAsset(e) {
-    const id = e.target.getAttribute("data-id");
+  function removeAsset() {
     // Deletes from localStorage
-    deleteAsset(id);
-    // Update assetData
+    deleteAsset(assetId);
+    // Update assetData Ctx
     const updatedData = assetData.filter((item) => item.id !== assetId);
     setAssetData(updatedData);
 
@@ -26,7 +25,7 @@ function DelAsset({ assetId, assetSymbol, onClose }) {
         <button className="btn cancel" onClick={onClose}>
           Cancel
         </button>
-        <button data-id={assetId} className="btn delete" onClick={removeAsset}>
+        <button className="btn delete" onClick={removeAsset}>
           Delete
         </button>
       </div>

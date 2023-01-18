@@ -38,7 +38,9 @@ function AddAsset({ onClose }) {
         <img src={lessThan} alt="<" />
         <span>Back</span>
       </div>
+
       <h2 className="add-asset__title">Add Asset</h2>
+
       <SegmentedPicker
         name="search-asset-type"
         callback={(val) => {
@@ -79,7 +81,7 @@ function AddAsset({ onClose }) {
           Search
         </button>
       </div>
-
+      
       {inputVal && (
         <SearchResults
           value={inputVal}

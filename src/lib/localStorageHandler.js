@@ -16,6 +16,7 @@ function initLocalStorage() {
   }
 }
 
+// Updates assets timeFrame
 function updateAsset(id, newTf) {
   const assetList = JSON.parse(localStorage.getItem("assetList"));
   let updatedAsset = {};

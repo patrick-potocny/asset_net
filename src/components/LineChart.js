@@ -22,6 +22,7 @@ ChartJS.register(
 );
 
 function LineChart({ data, changeColor }) {
+  // changeColor set to partial rgba value to the alpha can be set when creating gradient
   const changeClr = changeColor === "green" ? "rgba(0,212,0" : "rgba(255,0,0";
   const options = {
     animation: false,
