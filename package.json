@@ -47,6 +47,9 @@
     "eslint-plugin-react": "^7.31.11"
   },
   "jest" : {
-    "resetMocks": false
+    "resetMocks": false,
+    "moduleNameMapper": {
+      "axios": "axios/dist/node/axios.cjs"
+    }
   }
 }
