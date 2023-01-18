@@ -1,9 +1,9 @@
 {
+  "homepage": "https://patrick-potocny.github.io/asset_net",
   "name": "asset_net",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.2",
     "chart.js": "^4.1.1",
     "moment-timezone": "^0.5.40",
@@ -11,11 +11,11 @@
     "react": "^18.2.0",
     "react-chartjs-2": "^5.1.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "uuid": "^9.0.0",
-    "web-vitals": "^2.1.4"
+    "uuid": "^9.0.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -42,11 +42,14 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
     "eslint": "^8.30.0",
     "eslint-plugin-jest": "^27.1.7",
-    "eslint-plugin-react": "^7.31.11"
+    "eslint-plugin-react": "^7.31.11",
+    "gh-pages": "^4.0.0",
+    "react-scripts": "5.0.1"
   },
-  "jest" : {
+  "jest": {
     "resetMocks": false,
     "moduleNameMapper": {
       "axios": "axios/dist/node/axios.cjs"
