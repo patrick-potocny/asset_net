@@ -2,12 +2,13 @@ import moment from "moment-timezone";
 import { updateAsset } from "./localStorageHandler";
 import { getAssetData } from "./apiHandler";
 
-// Rolling api keys to avoid too much request error(429)
+// Rolling api keys to avoid too much requests error(429)
 function createKeyIterator() {
   const apiKeys = [
     process.env.REACT_APP_API_KEY_1,
     process.env.REACT_APP_API_KEY_2,
-    process.env.REACT_APP_API_KEY_3
+    process.env.REACT_APP_API_KEY_3,
+    process.env.REACT_APP_API_KEY_4
   ]
   let currentIndex = 0;
 
@@ -17,7 +18,7 @@ function createKeyIterator() {
     return nextValue;
   }
 }
-
+// Sorts assetData Ctx based on localstorage
 function sortAssetData(assetData) {
   const sortBy = JSON.parse(localStorage.getItem("assetList"));
   assetData.sort(function (a, b) {
@@ -255,6 +256,7 @@ function processStocksPrices(pricesObj, timeFrame) {
     return newObj;
   }
 
+  // Converts datetime to users TZ because API outputs in NewYork TZ
   function convertToCurrentTZ(prices, format) {
     for (const key in prices) {
       const easternDate = moment.tz(key, "America/New_York");

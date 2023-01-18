@@ -8,11 +8,14 @@ import {
   processStocksSearch,
   sortAssetData,
 } from "./utlis";
-// import { createKeyIterator } from "./utlis";
+import { createKeyIterator } from "./utlis";
 
-// const keyIterator = createKeyIterator()
+const keyIterator = createKeyIterator()
 
 async function makeApiCall(options) {
+  // different api key every time api call is made
+  options.headers["X-RapidAPI-Key"] = keyIterator()
+  console.log(options.headers["X-RapidAPI-Key"]);
   try {
     const response = await axios.request(options);
     return response;
@@ -50,7 +53,7 @@ async function getAssetData(asset) {
         url: `https://coinranking1.p.rapidapi.com/coin/${asset.id}`,
         params: { timePeriod: cryptoTimeFrames[asset.timeFrame] },
         headers: {
-          "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
+          "X-RapidAPI-Key": null,
           "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
         },
       };
@@ -70,7 +73,7 @@ async function getAssetData(asset) {
           output_size: "compact",
         },
         headers: {
-          "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
+          "X-RapidAPI-Key": null,
           "X-RapidAPI-Host": "alpha-vantage.p.rapidapi.com",
         },
       };
@@ -86,7 +89,7 @@ async function getAssetData(asset) {
   return assetData;
 }
 
-async function  getSearchResults(query, assetType) {
+async function getSearchResults(query, assetType) {
   switch (assetType) {
     case "crypto": {
       const options = {
@@ -94,7 +97,7 @@ async function  getSearchResults(query, assetType) {
         url: "https://coinranking1.p.rapidapi.com/search-suggestions",
         params: { query: query },
         headers: {
-          "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
+          "X-RapidAPI-Key": null,
           "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
         },
       };
@@ -112,7 +115,7 @@ async function  getSearchResults(query, assetType) {
           datatype: "json",
         },
         headers: {
-          "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
+          "X-RapidAPI-Key": null,
           "X-RapidAPI-Host": "alpha-vantage.p.rapidapi.com",
         },
       };
