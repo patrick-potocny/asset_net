@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+import { AssetDataCtx } from "./AssetDataCtx";
+import { DarkModeCtx } from "./DarkModeCtx";
 import Header from "./components/Header";
 import SegmentedPicker from "./components/SegmentedPicker";
 import Assets from "./components/Assets";
 import Spinner from "./components/Spinner";
-import { AssetDataCtx } from "./AssetDataCtx";
-import { DarkModeCtx } from "./DarkModeCtx";
 import { getAssetsData } from ".//lib/apiHandler";
 import { initLocalStorage } from './lib/localStorageHandler'
 

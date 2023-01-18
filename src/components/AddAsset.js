@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import lessThan from "../assets/images/less-than.svg";
 import SegmentedPicker from "./SegmentedPicker";
 import SearchResults from "./SearchResults";
 import { DarkModeCtx } from "../DarkModeCtx";
+import lessThan from "../assets/images/less-than.svg";
 import searchDark from "../assets/images/searchDarkMode.svg";
 import searchLight from "../assets/images/searchLightMode.svg";
 

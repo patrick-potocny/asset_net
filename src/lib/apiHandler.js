@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   processCryptoData,
   processCryptoSearch,
@@ -7,7 +8,6 @@ import {
   processStocksSearch,
   sortAssetData,
 } from "./utlis";
-import axios from "axios";
 // import { createKeyIterator } from "./utlis";
 
 // const keyIterator = createKeyIterator()

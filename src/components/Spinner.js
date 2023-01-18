@@ -2,7 +2,7 @@ import React from "react";
 
 function Spinner() {
   return (
-    <div className="spinner">
+    <div data-testid="spinner" className="spinner">
       <div className="bar1"></div>
       <div className="bar2"></div>
       <div className="bar3"></div>

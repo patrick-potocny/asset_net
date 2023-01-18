@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import Spinner from "./Spinner";
 import { getAssetData, getSearchResults } from "../lib/apiHandler";
 import { addAsset } from "../lib/localStorageHandler";
 import moreThanDark from "../assets/images/moreThanDark.svg";
 import moreThanLight from "../assets/images/moreThanLight.svg";
 import { DarkModeCtx } from "../DarkModeCtx";
-import Spinner from "./Spinner";
 import { AssetDataCtx } from "../AssetDataCtx";
 
 function SearchResults({ value, assetType, onClose }) {
@@ -26,8 +26,6 @@ function SearchResults({ value, assetType, onClose }) {
       setError(null);
       try {
         const response = await getSearchResults(value, assetType);
-        console.log(response);
-        console.log(getSearchResults);
         setResults(response);
         setLoading(false);
       } catch (e) {
