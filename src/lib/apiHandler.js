@@ -15,7 +15,6 @@ const keyIterator = createKeyIterator()
 async function makeApiCall(options) {
   // different api key every time api call is made
   options.headers["X-RapidAPI-Key"] = keyIterator()
-  console.log(options.headers["X-RapidAPI-Key"]);
   try {
     const response = await axios.request(options);
     return response;
