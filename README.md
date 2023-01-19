@@ -1,70 +1,49 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<a  href="https://patrick-potocny.github.io/asset_net">
+<img  src="https://raw.githubusercontent.com/patrick-potocny/asset_net/master/public/static/android-chrome-256x256.png"  alt="AssetNet logo"  title="AssetNet"  align="right"  height="60"  />
+</a>
 
-## Available Scripts
+# AssetNet 
 
-In the project directory, you can run:
+<p align="center">Easily keep track of the prices of your favorite assets, like cryptocurrencies and stocks, with <a href="https://patrick-potocny.github.io/asset_net">AssetNet</a></p>
 
-### `npm start`
+<p align="center">&#128073 <a href="https://patrick-potocny.github.io/asset_net">Live Site </a>&#128072</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Table of contents 
+1. [About AssetNet](#about-assetnet)
+2. [Technologies used](#technologies-used)
+3. [Design & Development](#design--development)
+---
 
-### `npm test`
+### About AssetNet
+AssetNet is a web-app that provides users with the ability to effortlessly view and monitor the prices and fluctuations of their selected assets. The application's user-friendly interface allows users to customize their preferences, such as the displayed assets and appearance, and retain them for future use, providing a seamless experience upon each return visit. AssetNet was created to showcase my ability to design and create fully functional, responsive front-end applications using React. The motivation behind the creation of this project was to serve as a portfolio piece that demonstrates my proficiency in using React and ability to build user-friendly and visually pleasing applications.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Demo](https://user-images.githubusercontent.com/67468836/213311405-fa774b5e-2315-4c54-8a1c-b03ae15f00cb.png)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Technologies used
+ - __HTML/CSS__
+ - __JavaScript__
+ - __SCSS__
+ - __React__
+ - __ChartJS__
+ - __Webpack__
+ - __ESLint__
+ - __Git__
+ - __Figma__
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+--- 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Design & Development
 
-### `npm run eject`
+To build the AssetNet app, I began by designing it in [Figma](https://www.figma.com/file/bduBS3l0oXvlhMIYq7rwqe/AssetNet-Website?node-id=0%3A1&t=f4jj5MHyVeNxdhTo-1), drawing inspiration from the simple and elegant style of iOS and utilizing my UI/UX design skills obtained in [Google UX Design](https://coursera.org/share/81d54f233734293bd54de5d3dab5bcb5).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Next, I sourced reliable and fast APIs for real-time and historical data of cryptocurrencies and stocks, ultimately selecting [Coinranking](https://developers.coinranking.com/api) for crypto data and [Alpha Vantage](https://www.alphavantage.co/) for stocks.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+In determining the framework for building the React app, I carefully evaluated my options and ultimately chose [Create-React-App (CRA)](https://create-react-app.dev/) due to its ease of use and simplicity in getting the app up and running, as well as the app's lack of need for server-side rendering. To ensure a structured and maintainable CSS, I adopted the [BEM](https://getbem.com/) naming style and paired it with [SCSS](https://sass-lang.com/). To make the app user-friendly and facilitate easy storage of user preferences, I utilized the built-in localStorage API. To optimize performance, I implemented asynchronous JavaScript to make API requests simultaneously. To display historical data, I employed the [react-chartjs-2](https://react-chartjs-2.js.org/) library to provide visually pleasing and responsive components.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Throughout the development process, I adhered to best practices such as __TDD__ (Test-Driven Development) and __DRY__ (Don't Repeat Yourself). For testing, I utilized [Jest](https://jestjs.io/) in conjunction with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/), and for version control, I employed [Git](https://git-scm.com/).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
