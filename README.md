@@ -32,6 +32,7 @@ AssetNet is a web-app that provides users with the ability to effortlessly view 
  - __ChartJS__
  - __Webpack__
  - __ESLint__
+ - __Jest__
  - __Git__
  - __Figma__
 
@@ -39,7 +40,7 @@ AssetNet is a web-app that provides users with the ability to effortlessly view 
 
 ### Design & Development
 
-To build the AssetNet app, I began by designing it in [Figma](https://www.figma.com/file/bduBS3l0oXvlhMIYq7rwqe/AssetNet-Website?node-id=0%3A1&t=f4jj5MHyVeNxdhTo-1), drawing inspiration from the simple and elegant style of iOS and utilizing my UI/UX design skills obtained in [Google UX Design](https://coursera.org/share/81d54f233734293bd54de5d3dab5bcb5).
+To build the AssetNet app, I began by designing it in [Figma](https://www.figma.com/file/bduBS3l0oXvlhMIYq7rwqe/AssetNet-Website?node-id=0%3A1&t=f4jj5MHyVeNxdhTo-1), drawing inspiration from the simple and elegant style of iOS and utilizing my UI/UX design skills.
 
 ![Screenshot from 2023-01-19 11-15-55](https://user-images.githubusercontent.com/67468836/213416889-590bc1cd-8ab1-4f28-9ae5-6610f9a9c2b1.png)
 
