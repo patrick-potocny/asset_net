@@ -40,7 +40,7 @@ AssetNet is a web-app that provides users with the ability to effortlessly view 
 
 ### Design & Development
 
-To build the AssetNet app, I began by designing it in [Figma](https://www.figma.com/file/bduBS3l0oXvlhMIYq7rwqe/AssetNet-Website?node-id=0%3A1&t=f4jj5MHyVeNxdhTo-1), drawing inspiration from the simple and elegant style of iOS and utilizing my UI/UX design skills.
+To build the AssetNet app, I began by designing it in [Figma](https://www.figma.com/file/bduBS3l0oXvlhMIYq7rwqe/AssetNet-Website?node-id=0%3A1&t=f4jj5MHyVeNxdhTo-1), drawing inspiration from the simple and elegant style of iOS and utilizing my UI/UX design [skills](https://www.coursera.org/account/accomplishments/professional-cert/DZUJWASR2WSS?utm_campaign=sharing_cta&utm_content=cert_image&utm_medium=certificate&utm_product=prof&utm_source=link).
 
 ![Screenshot from 2023-01-19 11-15-55](https://user-images.githubusercontent.com/67468836/213416889-590bc1cd-8ab1-4f28-9ae5-6610f9a9c2b1.png)
 
