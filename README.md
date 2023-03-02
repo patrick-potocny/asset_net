@@ -1,13 +1,13 @@
 
-<a  href="https://patrick-potocny.github.io/asset_net">
+<a  href="https://assetnet.co/">
 <img  src="https://raw.githubusercontent.com/patrick-potocny/asset_net/master/public/static/android-chrome-256x256.png"  alt="AssetNet logo"  title="AssetNet"  align="right"  height="60"  />
 </a>
 
 # AssetNet 
 
-<p align="center">Easily keep track of the prices of your favorite assets, like cryptocurrencies and stocks, with <a href="https://patrick-potocny.github.io/asset_net">AssetNet</a></p>
+<p align="center">Easily keep track of the prices of your favorite assets, like cryptocurrencies and stocks, with <a href="https://assetnet.co/">AssetNet</a></p>
 
-<p align="center">&#128073 <a href="https://patrick-potocny.github.io/asset_net">Live Site </a>&#128072</p>
+<p align="center">&#128073 <a href="https://assetnet.co/">Live Site </a>&#128072</p>
 
 ---
 
