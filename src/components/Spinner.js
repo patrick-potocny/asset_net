@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-function Spinner() {
+function Spinner({ position }) {
   return (
-    <div data-testid="spinner" className="spinner">
+    <div data-testid="spinner" className="spinner" style={{position: position}}>
       <div className="bar1"></div>
       <div className="bar2"></div>
       <div className="bar3"></div>
@@ -18,5 +19,10 @@ function Spinner() {
     </div>
   );
 }
+
+Spinner.propTypes = {
+  position: PropTypes.string,
+};
+
 
 export default Spinner;

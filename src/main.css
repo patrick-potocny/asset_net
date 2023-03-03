@@ -50,8 +50,8 @@ picture {
     scroll-behavior: auto;
   }
   *,
-*::before,
-*::after {
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -68,12 +68,9 @@ body {
   --clr-main: rgba(118, 118, 128, 0.24);
   --clr-bg: black;
   --clr-text: white;
-  --clr-text-blue: #007AFF;
   --clr-toggle: rgb(50, 215, 75);
   --clr-sp-pill: #636366;
   --clr-card-div: rgba(182, 182, 184, 0.5);
-  --clr-card-red: #FF0000;
-  --clr-card-green: rgb(0, 212, 0);
   --clr-modal-div: rgba(255, 255, 255, 0.2);
   --clr-modal-hover: rgb(60, 60, 60);
   --clr-add-bg: #1C1C1E;
@@ -84,12 +81,9 @@ body.lightMode {
   --clr-main: #EEEEEF;
   --clr-bg: white;
   --clr-text: black;
-  --clr-text-blue: #007AFF;
   --clr-toggle: #787880;
   --clr-sp-pill: white;
   --clr-card-div: #B6B6B8;
-  --clr-card-red: #FF0000;
-  --clr-card-green: rgb(0, 212, 0);
   --clr-modal-div: rgba(0, 0, 0, 0.2);
   --clr-modal-hover: rgb(219, 219, 219);
   --clr-add-bg: white;
@@ -329,10 +323,10 @@ body {
   margin-right: 2px;
 }
 .asset__info .change .red {
-  color: var(--clr-card-red);
+  color: #FF0000;
 }
 .asset__info .change .green {
-  color: var(--clr-card-green);
+  color: rgb(0, 212, 0);
 }
 .asset__divider {
   height: 1px;
@@ -425,11 +419,11 @@ body {
   cursor: pointer;
 }
 .delAsset__btns .cancel {
-  color: var(--clr-text-blue);
+  color: #007AFF;
   border-right: 1px solid var(--clr-modal-div);
 }
 .delAsset__btns .delete {
-  color: var(--clr-card-red);
+  color: #FF0000;
 }
 
 .add-asset {
@@ -450,7 +444,7 @@ body {
   top: 0.7em;
   display: flex;
   gap: 0.5em;
-  color: var(--clr-text-blue);
+  color: #007AFF;
 }
 .add-asset__back-btn img {
   height: 1.25em;
@@ -493,7 +487,7 @@ body {
   width: 18%;
   height: 2.3em;
   background-color: var(--clr-search-bg);
-  color: var(--clr-text-blue);
+  color: #007AFF;
   border: none;
   border-radius: 0.6em;
 }
@@ -530,7 +524,6 @@ body {
 }
 
 .spinner {
-  position: relative;
   width: 7em;
   height: 7em;
   position: fixed;

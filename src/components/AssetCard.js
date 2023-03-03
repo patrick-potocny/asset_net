@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import LineChart from "./LineChart";
 import Modal from "./Modal";
 import DelAsset from "./DelAsset";
+import Spinner from "./Spinner";
 import removeIcon from "../assets/images/closeIcon.svg";
 import greenTriangle from "../assets/images/greenTriangle.svg";
 import redTriangle from "../assets/images/redTriangle.svg";
@@ -14,6 +15,7 @@ function AssetCard({ asset }) {
   const [triangle, setTriangle] = useState(greenTriangle);
   const [changeColor, setChangeColor] = useState("green");
   const [isOpen, setIsOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const timeFrames = ["1D", "1W", "1M", "3M", "1Y", "3Y"];
 
   useEffect(() => {
@@ -23,6 +25,12 @@ function AssetCard({ asset }) {
       setChangeColor("red");
     }
   }, []);
+
+  async function updateTimeFrame(newTf) {
+    setLoading(true);
+    await updateTf(asset.id, newTf, assetData, setAssetData);
+    setLoading(false);
+  }
 
   return (
     <div className="asset">
@@ -55,6 +63,7 @@ function AssetCard({ asset }) {
         </div>
       </div>
       
+      {loading ? <Spinner position={'relative'}/> : (<>
       <hr className="asset__divider" />
 
       <div className="asset__time-frame">
@@ -62,7 +71,7 @@ function AssetCard({ asset }) {
           <button
             key={tf}
             onClick={() => {
-              updateTf(asset.id, tf, assetData, setAssetData);
+              updateTimeFrame(tf);
             }}
             className={`time-frame-btn ${
               tf === asset.timeFrame ? "selected" : ""
@@ -76,6 +85,7 @@ function AssetCard({ asset }) {
       <hr className="asset__divider" />
 
       <LineChart data={asset.sparkline} changeColor={changeColor} />
+      </>)}
     </div>
   );
 }
